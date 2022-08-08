@@ -32,6 +32,7 @@ go install github.com/fatih/gomodifytags@latest
 go get -u github.com/cweill/gotests/...
 go install github.com/koron/iferr@latest
 go install github.com/katbyte/terrafmt@latest
+go install github.com/arl/gitmux@latest
 
 # Install node packages
 npm install -g quicktype
