@@ -8,6 +8,10 @@ brew update
 brew install fish \
   go \
   rust \
+  fzy \
+  fzf \
+  shellcheck \
+  gcc \
   nvm \
   pyenv \
   rbenv \
@@ -19,15 +23,15 @@ brew install fish \
 
 # Install go modules
 go install github.com/mgechev/revive@latest
-go get -u golang.org/x/lint/golint
+go install golang.org/x/lint/golint@latest
 go install golang.org/x/tools/cmd/goimports@latest
 go install mvdan.cc/gofumpt@latest
 go install github.com/kisielk/errcheck@latest
 go install honnef.co/go/tools/cmd/staticcheck@latest
 go install github.com/fatih/gomodifytags@latest
 go get -u github.com/cweill/gotests/...
-go get -u github.com/koron/iferr
-go get github.com/katbyte/terrafmt
+go install github.com/koron/iferr@latest
+go install github.com/katbyte/terrafmt@latest
 
 # Install node packages
 npm install -g quicktype

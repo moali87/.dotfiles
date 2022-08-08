@@ -29,7 +29,7 @@ starship init fish | source
 
 # NVM
 nvm use v16
-set -Ux NVIM_DIR $HOME/.local/nvm
+set -Ux NVM_DIR $HOME/.local/nvm
 
 # Ruby
 status --is-interactive; and rbenv init - fish | source
