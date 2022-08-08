@@ -5,7 +5,7 @@ end
 
 function _exportCreds
   set -l host (hostname)
-  switch host
+  switch $host
     case 'Akhters-MacBook-Pro.local'
       set -l profiles personal
     case 'C02FD2Q7MD6R' # Upsatrt
