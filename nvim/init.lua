@@ -33,7 +33,8 @@ set foldlevel=2
 
 -- VIM Colorscheme
 vim.api.nvim_command("set termguicolors")
-vim.api.nvim_command("colorscheme minimal")
+vim.o.background = "dark"
+vim.api.nvim_command("colorscheme gruvbox")
 
 -- VIM editor settings
 vim.opt.guicursor = ""
