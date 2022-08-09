@@ -7,7 +7,6 @@ curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 brew update
 brew install fish \
   go \
-  rust \
   fzy \
   fzf \
   shellcheck \
@@ -19,7 +18,7 @@ brew install fish \
   golangci-lint \
   awscli \
   neovim \
-  terraform
+  tfenv
 
 # Install go modules
 go install github.com/mgechev/revive@latest
@@ -47,5 +46,6 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 pip install pylint neovim
 pip install --user yamllint
 
-# Install rust packages
+# Install rust and rust packages
+curl https://sh.rustup.rs -sSf | sh
 rustup component add rustfmt
