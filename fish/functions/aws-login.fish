@@ -7,9 +7,9 @@ function _exportCreds
   set -l host (hostname)
   switch $host
     case 'Akhters-MacBook-Pro.local'
-      set -l profiles personal
+      set profiles personal
     case 'C02FD2Q7MD6R' # Upsatrt
-      set -l profiles stagingrosa \
+      set profiles stagingrosa \
         prodigy \
         fairlendingaudit \
         itsandbox \
@@ -17,7 +17,7 @@ function _exportCreds
         infosec \
         audit \
         cicd \
-        produciton \
+        production \
         sandbox \
         devops \
         devopsrosa \
@@ -43,6 +43,7 @@ function _exportCreds
         mlproductionrosa \
         private
   end
+  set -S profiles
   for i in $profiles
     command aws-export-credentials --profile $i --credentials-file-profile $i
   end
