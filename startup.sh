@@ -38,6 +38,7 @@ npm install -g quicktype
 npm install -g eslint_d
 npm install jsonlint -g
 npm install -g aws-cdk
+npm install -g typescript-language-server typescript
 
 # Install pip
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
