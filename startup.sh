@@ -10,7 +10,9 @@ brew install fish \
   fzy \
   fzf \
   shellcheck \
+  rbenv \
   gcc \
+  lua \
   nvm \
   pyenv \
   rbenv \
@@ -50,3 +52,6 @@ pip install --user yamllint
 # Install rust and rust packages
 curl https://sh.rustup.rs -sSf | sh
 rustup component add rustfmt
+
+# Install gem packages
+gem install --user-install solargraph

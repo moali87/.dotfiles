@@ -1,6 +1,10 @@
 # Aliases
 alias cat "bat --style=plain"
 
+# Rbenv
+set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
+set -x PATH $HOME/.gem/ruby/2.7.0/bin $PATH
+
 # Pyenv
 set -Ux PYENV_ROOT $HOME/.pyenv
 set -U fish_user_paths $PYENV_ROOT/bin 

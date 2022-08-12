@@ -19,7 +19,8 @@ nls.setup({
     nls.builtins.diagnostics.vale,
     nls.builtins.diagnostics.yamllint,
     nls.builtins.formatting.rustfmt,
-    nls.builtins.formatting.terraform_fmt
+    nls.builtins.formatting.terraform_fmt,
+    nls.builtins.formatting.rubocop
     -- nls.builtins.formatting.stylua,
     -- nls.builtins.diagnostics.selene
   }

@@ -58,6 +58,7 @@ lspconfig.golangci_lint_ls.setup {
 
 local servers = {
   'clangd',
+  'solargraph',
   'rust_analyzer',
   'pyright',
   'tsserver',
