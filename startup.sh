@@ -3,28 +3,9 @@
 # Install brew
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 
-# Install shell
-brew tap wez/wezterm
-brew install --cask wez/wezterm/wezterm
-
 # Install brew packages
 brew update
-brew install fish \
-  go \
-  fzy \
-  fzf \
-  shellcheck \
-  rbenv \
-  gcc \
-  lua \
-  nvm \
-  pyenv \
-  rbenv \
-  vale \
-  golangci-lint \
-  awscli \
-  neovim \
-  tfenv
+brew bundle
 
 # Install go modules
 go install github.com/mgechev/revive@latest
