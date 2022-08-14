@@ -6,6 +6,7 @@ cask "wez/wezterm/wezterm"
 cask "firefox"
 
 brew "go"
+brew "htop"
 brew "fd"
 brew "ripgrep"
 brew "fzy"
