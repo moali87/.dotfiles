@@ -1,11 +1,13 @@
 # Install wezterm
-tap wez/wezterm
-cask wez/wezterm/wezterm
+tap "wez/wezterm"
+cask "wez/wezterm/wezterm"
 
 # Install browsers
 cask "firefox"
 
 brew "go"
+brew "fd"
+brew "ripgrep"
 brew "fzy"
 brew "fzf"
 brew "shellcheck"
