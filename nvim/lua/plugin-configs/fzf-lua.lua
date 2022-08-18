@@ -1,6 +1,6 @@
 local actions = require("fzf-lua.actions")
 return {
-  -- fzf_bin         = 'sk',            -- use skim instead of fzf?
+  fzf_bin           = 'fzy',            -- use skim instead of fzf?
                                         -- https://github.com/lotabout/skim
   global_resume      = true,            -- enable global `resume`?
                                         -- can also be sent individually:
