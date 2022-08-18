@@ -80,7 +80,7 @@ return packer.startup(function()
   -- notify
   use({
     'rcarriga/nvim-notify',
-    requires = 'hrsh7th/nvim-cmp',
+    event = 'VimEnter',
     config = function()
       vim.notify = require('notify')
       require('plugin-configs.notify')
@@ -121,6 +121,21 @@ return packer.startup(function()
       require('plugin-configs.fzf-lua')
     end
   })
+
+  -- snap
+  --[[ use ({
+    'camspiers/snap',
+    config = function ()
+      local snap = require('snap')
+      local file = snap.config.file:with {suffix = "Files>", consumer = "/usr/local/bin/fzy"}
+      snap.map {
+        {
+          "<C-o>", file {producer = "fd.file"}
+          "<C-p>", file {producer = "ripgrep.file"}
+        }
+      }
+    end
+  }) ]]
 
   -- bufferline
   use({
