@@ -1,6 +1,6 @@
 local nls = require("null-ls")
 nls.setup({
-  debug = true,
+  debug = false,
   sources = {
     nls.builtins.hover.dictionary,
     nls.builtins.formatting.eslint_d,
