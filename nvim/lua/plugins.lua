@@ -78,14 +78,14 @@ return packer.startup(function()
   -- }
 
   -- notify
-  use({
+  --[[ use({
     'rcarriga/nvim-notify',
     event = 'VimEnter',
     config = function()
       vim.notify = require('notify')
       require('plugin-configs.notify')
     end
-  })
+  }) ]]
 
   -- nvim-go
   use({
@@ -123,19 +123,19 @@ return packer.startup(function()
   })
 
   -- snap
-  --[[ use ({
+  use ({
     'camspiers/snap',
+    rocks = {'fzy'},
     config = function ()
       local snap = require('snap')
-      local file = snap.config.file:with {suffix = "Files>", consumer = "/usr/local/bin/fzy"}
-      snap.map {
-        {
-          "<C-o>", file {producer = "fd.file"}
-          "<C-p>", file {producer = "ripgrep.file"}
-        }
+      local file = snap.config.file:with {consumer = "fzy"}
+      snap.maps {
+        {"<Space>o", file { producer = "fd.file", suffix = " Files❯"}},
+        {"<Space>i", file { producer = "ripgrep.file", suffix = " Rg❯"}}
+
       }
     end
-  }) ]]
+  })
 
   -- bufferline
   use({
