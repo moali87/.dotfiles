@@ -47,4 +47,6 @@ set -x RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/.ripgreprc
 # local/bin
 set -x PATH $HOME/.local/bin $PATH
 
+source ~/.config/private/privateKeys.fish
+
 theme_gruvbox dark

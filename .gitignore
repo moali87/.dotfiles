@@ -2,3 +2,4 @@ fish/fish_variables
 *.tmp.*
 *.tmp
 htop
+private/
