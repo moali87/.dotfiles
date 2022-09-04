@@ -7,6 +7,14 @@ curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 brew update
 brew bundle
 
+# Install fisher
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+
+# Install fisher packages
+fisher install edc/bass
+fisher install jorgebucaran/nvm.fish
+fundle plugin 'danhper/fish-ssh-agent'
+
 # Install go modules
 go install github.com/mgechev/revive@latest
 go install golang.org/x/lint/golint@latest
