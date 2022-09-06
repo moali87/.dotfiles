@@ -3,3 +3,4 @@ fish/fish_variables
 *.tmp
 htop
 private/
+configstore/
