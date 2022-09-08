@@ -143,8 +143,6 @@ return packer.startup(function()
       local file = snap.config.file:with {consumer = "fzy"}
       snap.maps {
         {"<Space>[", file { producer = "fd.file", suffix = " Files❯" }},
-        {"<Space>]", file { producer = "ripgrep.file", suffix = " Rg❯" }}
-
       }
     end
   })
