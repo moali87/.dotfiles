@@ -22,7 +22,7 @@ return packer.startup(function()
   use({
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    event = 'BufRead',
+    event = 'VimEnter',
     config = function()
       require('nvim-treesitter.configs').setup(require('plugin-configs.treesitter'))
     end
@@ -122,16 +122,28 @@ return packer.startup(function()
     end
   })
 
+  -- whichkey
+  use ({
+  "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  })
+
   -- snap
   use ({
     'camspiers/snap',
-    rocks = {'fzy'},
+    requires = 'nvim-treesitter',
     config = function ()
       local snap = require('snap')
       local file = snap.config.file:with {consumer = "fzy"}
       snap.maps {
-        {"<Space>o", file { producer = "fd.file", suffix = " Files❯"}},
-        {"<Space>i", file { producer = "ripgrep.file", suffix = " Rg❯"}}
+        {"<Space>[", file { producer = "fd.file", suffix = " Files❯" }},
+        {"<Space>]", file { producer = "ripgrep.file", suffix = " Rg❯" }}
 
       }
     end
