@@ -138,6 +138,7 @@ return packer.startup(function()
   use ({
     'camspiers/snap',
     requires = 'nvim-treesitter',
+    rocks = { 'fzy' },
     config = function ()
       local snap = require('snap')
       local file = snap.config.file:with {consumer = "fzy"}
