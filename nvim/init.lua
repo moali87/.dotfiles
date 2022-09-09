@@ -3,7 +3,7 @@ require('code_actions_utils')
 require('key-functions')
 
 -- VIM Leader key
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 -- python3
 vim.g.python3_host_prog = "expand('~/.pyenv/shims/python')"
