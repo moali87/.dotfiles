@@ -114,13 +114,13 @@ return packer.startup(function()
   })
 
   -- fzf-lua
-  use({
+  --[[ use({
     'ibhagwan/fzf-lua',
     -- keys = {'<C-o>', '<C-p>'},
     config = function()
       require('plugin-configs.fzf-lua')
     end
-  })
+  }) ]]
 
   -- whichkey
   use ({
@@ -141,9 +141,12 @@ return packer.startup(function()
     -- rocks = { 'fzy' }, -- This does not work everywhere, need to find fixes
     config = function ()
       local snap = require('snap')
-      local file = snap.config.file:with {consumer = "fzy"}
+      local consumer = snap.get'consumer.fzy'
+      local file = snap.config.file:with {consumer = consumer }
+      local grep = snap.config.vimgrep:with { consumer = consumer }
       snap.maps {
-        {"<Space>[", file { producer = "fd.file", suffix = " Files❯" }},
+        {"<C-o>", file { producer = "fd.file", suffix = " Files❯" }},
+        {"<C-p>", grep { consumer = "fzy",  producer = "ripgrep.vimgrep", suffix = " Grep❯" }},
       }
     end
   })
