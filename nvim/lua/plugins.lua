@@ -103,7 +103,7 @@ return packer.startup(function()
     end
   })
 
-  -- lint
+  -- Lazyloaded plugins
   -- null-ls
   use({
     "jose-elias-alvarez/null-ls.nvim",
