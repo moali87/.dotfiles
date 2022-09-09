@@ -11,12 +11,12 @@ return packer.startup(function()
   use({ 'kdheepak/lazygit.nvim' })
   use({ 'glepnir/dashboard-nvim' })
   use({ 'lewis6991/impatient.nvim', config = function() require('impatient').enable_profile() end })
-  use({
+  --[[ use({
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function()
       require("lsp_lines").setup()
     end,
-  })
+  }) ]]
   -- Lazy loaded plugins
 
   use({
