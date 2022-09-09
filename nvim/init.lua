@@ -39,6 +39,7 @@ vim.api.nvim_command("colorscheme gruvbox")
 -- VIM editor settings
 vim.opt.guicursor = ""
 vim.api.nvim_command([[
+set timeoutlen=0
 set scrolloff=10
 set relativenumber
 set number
@@ -75,7 +76,7 @@ nmap("<Leader>w", ":bprevious<CR>")
 nmap("<Leader>e", ":bnext<CR>")
 nmap("<Leader>q", ":bd<CR>")
 nmap("<Leader>Q", ":bd!<CR>")
-nmap("<F2>", ":vert sb")
+nmap("<Leader>s", ":vert sb")
 
 -- Map panel movement keys
 -- Down
@@ -86,11 +87,6 @@ nmap("<Leader>r", "<C-W><C-K>")
 nmap("<Leader>f", "<C-W><C-H>")
 -- Right
 nmap("<Leader>j", "<C-W><C-L>")
-
--- Map fzf-lua
-nmap("<C-o>", "<cmd>lua require('fzf-lua').files({ fd_opts = \"--hidden  --color=always --exclude '{API.*,.git/*,node_modules/*,docs/*}'\"})<CR>")
-nmap("<C-p>", "<cmd>lua require('fzf-lua').grep_visual()<CR>")
--- nmap("<C-p>", "<cmd>lua require('fzf-lua').live_grep({ rg_opts = '--hidden --column --line-number --no-heading --color=always --smart-case '})<CR>")
 
 -- Map Terminal
 tmap("<Leader><ESC>", "<C-\\><C-n>")
