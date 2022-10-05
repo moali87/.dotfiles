@@ -40,6 +40,7 @@ vim.api.nvim_command("colorscheme gruvbox")
 vim.opt.guicursor = ""
 vim.api.nvim_command([[
 set mouse=
+set cmdheight=0
 set timeoutlen=0
 set scrolloff=10
 set relativenumber
