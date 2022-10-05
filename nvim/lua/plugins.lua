@@ -13,7 +13,6 @@ return packer.startup(function()
   use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-    event = "VimEnter",
     config = function()
       require("nvim-treesitter.configs").setup(require("plugin-configs.treesitter"))
     end
@@ -70,21 +69,96 @@ return packer.startup(function()
   })
 
   -- snap
-  use ({
+  --[[ use ({
     "camspiers/snap",
     requires = "nvim-treesitter",
     rocks = { "fzy" }, -- This does not work everywhere, need to find fixes
     config = function ()
       local snap = require("snap")
       local consumer = snap.get"consumer.fzy"
-      local file = snap.config.file:with {consumer = consumer }
+      local file = snap.config.file:with { preview = true, consumer = consumer }
       local grep = snap.config.vimgrep:with { consumer = consumer }
       snap.maps {
         {"<C-o>", file { producer = "fd.file", suffix = " Files❯" }},
         {"<C-p>", grep { consumer = "fzy",  producer = "ripgrep.vimgrep", suffix = " Grep❯" }},
       }
     end
+  }) ]]
+
+  use ({
+    "nvim-telescope/telescope.nvim", tag = "0.1.0",
+  -- or                            , branch = '0.1.x',
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-fzf-native.nvim",
+      "nvim-telescope/telescope-fzy-native.nvim"
+    },
+    config = function ()
+      require('telescope').setup{
+        defaults = {
+          -- Default configuration for telescope goes here:
+          -- config_key = value,
+          mappings = {
+            i = {
+              -- map actions.which_key to <C-h> (default: <C-/>)
+              -- actions.which_key shows the mappings for your picker,
+              -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+              ["<C-h>"] = "which_key"
+            }
+          }
+        },
+        pickers = {
+          -- Default configuration for builtin pickers goes here:
+          -- picker_name = {
+          --   picker_config_key = value,
+          --   ...
+          -- }
+          -- Now the picker_config_key will be applied every time you call this
+          -- builtin picker
+        },
+        extensions = {
+          fzf = {
+            fuzzy = true,                    -- false will only do exact matching
+            override_generic_sorter = true,  -- override the generic sorter
+            override_file_sorter = true,     -- override the file sorter
+            case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                             -- the default case_mode is "smart_case"
+          },
+          fzy_native = {
+            override_generic_sorter = false,
+            override_file_sorter = true,
+          }
+        }
+      }
+      require("telescope").load_extension("fzy_native")
+    end
   })
+
+  --[[ use ({
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "make",
+    requires = {
+      "nvim-telescope/telescope.nvim"
+    },
+    config = function ()
+      -- You dont need to set any of these options. These are the default ones. Only
+      -- the loading is important
+      require("telescope").setup {
+        extensions = {
+          fzf = {
+            fuzzy = true,                    -- false will only do exact matching
+            override_generic_sorter = true,  -- override the generic sorter
+            override_file_sorter = true,     -- override the file sorter
+            case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                             -- the default case_mode is "smart_case"
+          }
+        }
+      }
+      -- To get fzf loaded and working with telescope, you need to call
+      -- load_extension, somewhere after setup function:
+      require("telescope").load_extension("fzf")
+    end
+  }) ]]
 
   -- lspinstaller
   use({

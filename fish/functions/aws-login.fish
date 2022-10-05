@@ -8,7 +8,7 @@ function _exportCreds
   switch $host
     case 'Akhters-MacBook-Pro.local'
       set profiles personal
-    case 'C02FD2Q7MD6R' # Upsatrt
+    case 'LV1XJ97QFQ' # Upsatrt
       set profiles stagingrosa \
         prodigy \
         fairlendingaudit \

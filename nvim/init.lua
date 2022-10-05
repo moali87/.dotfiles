@@ -12,14 +12,14 @@ vim.g.python3_host_prog = "expand('~/.pyenv/shims/python')"
 vim.g.loaded_perl_provider = 0
 
 -- nodejs
-vim.g.node_host_prog = '~/.local/share/nvm/v16.13.0/bin/neovim-node-host'
+vim.g.node_host_prog = '~/.local/share/nvm/v16.17.1/bin/neovim-node-host'
 
 -- UTF-8
 vim.opt.encoding = "utf-8"
 
 -- VIM RTP
 vim.api.nvim_command([[
-set rtp+=~/.local/share/nvm/v16.13.0
+set rtp+=~/.local/share/nvm/v16.17.1
 set rtp+=~/opt/homebrew/bin/
 ]])
 
@@ -39,6 +39,7 @@ vim.api.nvim_command("colorscheme gruvbox")
 -- VIM editor settings
 vim.opt.guicursor = ""
 vim.api.nvim_command([[
+set mouse=
 set timeoutlen=0
 set scrolloff=10
 set relativenumber
@@ -52,7 +53,7 @@ set smartcase
 set wildmenu
 set wildmode=full,list
 set nocompatible
-set shell=/usr/local/bin/fish
+set shell=/opt/homebrew/bin/fish
 syntax on
 set completeopt=menu,menuone,noselect
 set fillchars+=vert:\|
@@ -96,7 +97,7 @@ tmap("<F9>", "<cmd> vsplit | term<CR>")
 nmap("<F4>", "<cmd> IndentBlanklineToggle<CR>")
 
 -- Notes mapping
-nmap("<F5>", "<cmd> e ~/notes/Upstart Standup.norg<CR>")
+-- nmap("<F5>", "<cmd> e ~/notes/Upstart Standup.norg<CR>")
 vim.keymap.set('n', '<F5>', function ()
   local buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_open_win(buf, true, {
@@ -105,6 +106,13 @@ vim.keymap.set('n', '<F5>', function ()
   vim.cmd('e ~/notes/Upstart Standup.norg')
   vim.keymap.set('n', '<ESC>', '<cmd>w | bd<CR>')
 end)
+
+-- telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>f', builtin.find_files, {})
+vim.keymap.set('n', '<leader>g', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>b', builtin.buffers, {})
+vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
 
 -- Eslint mapping
 -- nmap("<leader>f", "mF:%!eslint_d --stdin --fix-to-stdout<CR>")

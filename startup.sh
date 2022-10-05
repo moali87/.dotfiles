@@ -1,4 +1,6 @@
 #!/bin/bash
+# Make directories
+mkdir -p "$HOME/.ssh/"
 
 # Install brew
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
@@ -7,13 +9,24 @@ curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 brew update
 brew bundle
 
+# TODO: Everything below this should be done by fish shell
+
 # Install fisher
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
+# Install starship
+curl -sS https://starship.rs/install.sh | sh
+
+# Install neovim packer
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 # Install fisher packages
-fisher install edc/bass
-fisher install jorgebucaran/nvm.fish
-fundle plugin 'danhper/fish-ssh-agent'
+if [[ -f /usr/local/bin/fish ]]; then
+  /usr/local/bin/fish -c "fisher update"
+else
+  /opt/homebrew/bin/fish -c "fisher update"
+fi
 
 # Install go modules
 go install github.com/mgechev/revive@latest
