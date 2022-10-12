@@ -52,8 +52,7 @@ return packer.startup(function()
       { "leoluz/nvim-dap-go", module = "dap-go" },
       { "jbyuki/one-small-step-for-vimkind", module = "osv" },
     },
-    opt = true,
-    event = "BufReadPre",
+    -- opt = true,
     module = { "dap" },
     wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
     config = function ()
