@@ -4,12 +4,7 @@ return packer.startup(function()
   -- Non lazy loaded plugins
   use({ "wbthomason/packer.nvim" })
   use({ "neovim/nvim-lspconfig" })
-  use({ "ellisonleao/gruvbox.nvim" })
-  use({ "folke/lsp-colors.nvim" })
-  use({ "nvim-lua/plenary.nvim" })
-  use({ "kdheepak/lazygit.nvim" })
   use({ "lewis6991/impatient.nvim", config = function() require("impatient").enable_profile() end })
-
   use({
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
@@ -17,6 +12,57 @@ return packer.startup(function()
       require("nvim-treesitter.configs").setup(require("plugin-configs.treesitter"))
     end
   })
+  use({ "nvim-treesitter/playground",
+    requires = {"nvim-treesitter/nvim-treesitter"},
+    config = function ()
+      require("nvim-treesitter.configs").setup({
+        playground = {
+          enable = true,
+          disable = {},
+          updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+          persist_queries = false, -- Whether the query persists across vim sessions
+          keybindings = {
+            toggle_query_editor = 'o',
+            toggle_hl_groups = 'i',
+            toggle_injected_languages = 't',
+            toggle_anonymous_nodes = 'a',
+            toggle_language_display = 'I',
+            focus_language = 'f',
+            unfocus_language = 'F',
+            update = 'R',
+            goto_node = '<cr>',
+            show_help = '?',
+          },
+        }
+      })
+    end
+  })
+  use({ "ellisonleao/gruvbox.nvim" })
+  use({ "folke/lsp-colors.nvim" })
+  use({ "nvim-lua/plenary.nvim" })
+  use({ "kdheepak/lazygit.nvim" })
+  use({
+    "mfussenegger/nvim-dap",
+    requires = {
+      "Pocco81/DAPInstall.nvim",
+      "theHamsta/nvim-dap-virtual-text",
+      "rcarriga/nvim-dap-ui",
+      "mfussenegger/nvim-dap-python",
+      "nvim-telescope/telescope-dap.nvim",
+      { "leoluz/nvim-dap-go", module = "dap-go" },
+      { "jbyuki/one-small-step-for-vimkind", module = "osv" },
+    },
+    opt = true,
+    event = "BufReadPre",
+    module = { "dap" },
+    wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
+    config = function ()
+      require("config.dap.lua").setup()
+      require("config.dap.go").setup()
+      -- require("plugin-configs.dap").setup()
+    end
+  })
+  use({ "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} })
 
   -- cmp and cmp attachments
   use({
@@ -60,11 +106,12 @@ return packer.startup(function()
   use ({
   "folke/which-key.nvim",
     config = function()
-      require("which-key").setup {
+      --[[ require("which-key").setup {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
-      }
+      } ]]
+      require("config.dap.keymaps").setup()
     end
   })
 
