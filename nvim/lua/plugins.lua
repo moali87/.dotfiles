@@ -57,7 +57,6 @@ return packer.startup(function()
     module = { "dap" },
     wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
     config = function ()
-      require("config.dap.lua").setup()
       require("config.dap.go").setup()
     end
   })
