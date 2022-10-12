@@ -59,10 +59,8 @@ return packer.startup(function()
     config = function ()
       require("config.dap.lua").setup()
       require("config.dap.go").setup()
-      -- require("plugin-configs.dap").setup()
     end
   })
-  use({ "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} })
 
   -- cmp and cmp attachments
   use({
