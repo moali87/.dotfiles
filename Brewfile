@@ -8,6 +8,7 @@ cask "firefox"
 # Install password manager
 cask "lastpass"
 
+brew "yaml-language-server"
 brew "git-delta"
 brew "wget"
 brew "pipx"
