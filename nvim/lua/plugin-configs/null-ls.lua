@@ -3,6 +3,7 @@ nls.setup({
   debug = false,
   sources = {
     nls.builtins.hover.dictionary,
+    nls.builtins.formatting.prettier,
     -- nls.builtins.formatting.eslint_d,
     nls.builtins.formatting.eslint,
     -- nls.builtins.diagnostics.eslint_d,
