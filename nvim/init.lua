@@ -46,9 +46,9 @@ set scrolloff=10
 set relativenumber
 set number
 set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+" set tabstop=2
+" set softtabstop=2
+" set shiftwidth=2
 set ignorecase
 set smartcase
 set wildmenu
@@ -100,12 +100,12 @@ nmap("<F4>", "<cmd> IndentBlanklineToggle<CR>")
 -- Notes mapping
 -- nmap("<F5>", "<cmd> e ~/notes/Upstart Standup.norg<CR>")
 vim.keymap.set('n', '<F5>', function ()
-  local buf = vim.api.nvim_create_buf(false, true)
-  vim.api.nvim_open_win(buf, true, {
-    relative='editor', border='double', width=100, height=50, row=1, col=35
-  })
-  vim.cmd('e ~/notes/Upstart Standup.norg')
-  vim.keymap.set('n', '<ESC>', '<cmd>w | bd<CR>')
+    local buf = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_open_win(buf, true, {
+        relative='editor', border='double', width=100, height=50, row=1, col=35
+    })
+    vim.cmd('e ~/notes/Upstart Standup.norg')
+    vim.keymap.set('n', '<ESC>', '<cmd>w | bd<CR>')
 end)
 
 -- telescope
@@ -117,3 +117,15 @@ vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
 
 -- Eslint mapping
 -- nmap("<leader>f", "mF:%!eslint_d --stdin --fix-to-stdout<CR>")
+
+-- set spacing
+local indentGroup = vim.api.nvim_create_augroup("Indentation", { clear = true})
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = {"*.ts", "*.go", "*.lua"},
+    group = indentGroup,
+    callback = function ()
+        vim.cmd("set shiftwidth=4")
+        vim.cmd("set softtabstop=4")
+        vim.cmd("set tabstop=4")
+    end
+})
