@@ -51,7 +51,7 @@ local function configure_exts()
 end
 
 local function configure_debuggers()
-  require("config.dap.lua").setup()
+  -- require("config.dap.lua").setup()
   -- require("config.dap.python").setup()
   -- require("config.dap.rust").setup()
   require("config.dap.go").setup()
