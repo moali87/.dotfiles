@@ -142,7 +142,9 @@ return packer.startup(function()
                         hidden = true
                     },
                     live_grep = {
-                        hidden = true
+                        additional_args = function(opts)
+                            return {"--hidden"}
+                        end
                     }
                     -- Default configuration for builtin pickers goes here:
                     -- picker_name = {
