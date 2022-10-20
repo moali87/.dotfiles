@@ -13,8 +13,8 @@ return packer.startup(function()
         end
     })
     use({ "nvim-treesitter/playground",
-        requires = {"nvim-treesitter/nvim-treesitter"},
-        config = function ()
+        requires = { "nvim-treesitter/nvim-treesitter" },
+        config = function()
             require("nvim-treesitter.configs").setup({
                 playground = {
                     enable = true,
@@ -55,7 +55,7 @@ return packer.startup(function()
         -- opt = true,
         module = { "dap" },
         wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
-        config = function ()
+        config = function()
             require("config.dap.go").setup()
         end
     })
@@ -99,23 +99,23 @@ return packer.startup(function()
     })
 
     -- leap
-    use ({
+    use({
         "ggandor/leap.nvim",
-        event = {"BufEnter", "BufWinEnter"},
-        config = function ()
+        event = { "BufEnter", "BufWinEnter" },
+        config = function()
             require("leap").add_default_mappings()
         end
     })
 
     -- whichkey
-    use ({
+    use({
         "folke/which-key.nvim",
         config = function()
             require("config.dap.keymaps").setup()
         end
     })
 
-    use ({
+    use({
         "nvim-telescope/telescope.nvim", tag = "0.1.0",
         -- or                            , branch = '0.1.x',
         requires = {
@@ -123,8 +123,8 @@ return packer.startup(function()
             "nvim-telescope/telescope-fzf-native.nvim",
             "nvim-telescope/telescope-fzy-native.nvim"
         },
-        config = function ()
-            require('telescope').setup{
+        config = function()
+            require('telescope').setup {
                 defaults = {
                     -- Default configuration for telescope goes here:
                     -- config_key = value,
@@ -143,23 +143,23 @@ return packer.startup(function()
                     },
                     live_grep = {
                         additional_args = function(opts)
-                            return {"--hidden"}
+                            return { "--hidden" }
                         end
                     }
                     -- Default configuration for builtin pickers goes here:
                     -- picker_name = {
-                        --   picker_config_key = value,
-                        --   ...
-                        -- }
-                        -- Now the picker_config_key will be applied every time you call this
-                        -- builtin picker
+                    --   picker_config_key = value,
+                    --   ...
+                    -- }
+                    -- Now the picker_config_key will be applied every time you call this
+                    -- builtin picker
                 },
                 extensions = {
                     fzf = {
-                        fuzzy = true,                    -- false will only do exact matching
-                        override_generic_sorter = true,  -- override the generic sorter
-                        override_file_sorter = true,     -- override the file sorter
-                        case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                        fuzzy = true, -- false will only do exact matching
+                        override_generic_sorter = true, -- override the generic sorter
+                        override_file_sorter = true, -- override the file sorter
+                        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
                         -- the default case_mode is "smart_case"
                     },
                     fzy_native = {
@@ -175,7 +175,7 @@ return packer.startup(function()
     -- lspinstaller
     use({
         "williamboman/mason.nvim",
-        config = function ()
+        config = function()
             require("mason").setup({
                 automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
                 ui = {
@@ -193,8 +193,8 @@ return packer.startup(function()
     -- null-ls
     use({
         "jose-elias-alvarez/null-ls.nvim",
-        requires = {"nvim-lua/plenary.nvim"},
-        config = function ()
+        requires = { "nvim-lua/plenary.nvim" },
+        config = function()
             require("plugin-configs.null-ls")
         end
     })
@@ -224,7 +224,7 @@ return packer.startup(function()
         tag = "v2.*",
         config = function()
             require("bufferline").setup(
-            require("plugin-configs.bufferline-config")
+                require("plugin-configs.bufferline-config")
             )
         end
     })
