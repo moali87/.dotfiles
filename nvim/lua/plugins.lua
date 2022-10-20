@@ -209,9 +209,15 @@ return packer.startup(function()
     -- neorg
     use({
         "nvim-neorg/neorg",
-        requires = "nvim-lua/plenary.nvim",
-        ft = "norg",
-        after = "nvim-treesitter",
+        run = ":Neorg sync-parsers",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-neorg/neorg-telescope",
+            "max397574/neorg-kanban",
+            "esquires/neorg-gtd-project-tags",
+            "max397574/neorg-contexts",
+            "danymat/neorg-gtd-things"
+        },
         config = function()
             require("neorg").setup(require("plugin-configs.neorg-config"))
         end

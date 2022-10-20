@@ -112,7 +112,7 @@ local function getHostname()
     return nil
 end
 if getHostname() == workMachine then
-    require('keymaps.upstart')
+    require('config.neorg.keymaps.upstart')
 end
 
 -- telescope
