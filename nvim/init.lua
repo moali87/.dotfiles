@@ -2,6 +2,8 @@ require('plugins')
 require('code_actions_utils')
 require('key-functions')
 
+local workMachine = "LV1XJ97QFQ"
+
 -- VIM Leader key
 vim.g.mapleader = " "
 
@@ -99,14 +101,19 @@ nmap("<F4>", "<cmd> IndentBlanklineToggle<CR>")
 
 -- Notes mapping
 -- nmap("<F5>", "<cmd> e ~/notes/Upstart Standup.norg<CR>")
-vim.keymap.set('n', '<F5>', function ()
-    local buf = vim.api.nvim_create_buf(false, true)
-    vim.api.nvim_open_win(buf, true, {
-        relative='editor', border='double', width=100, height=50, row=1, col=35
-    })
-    vim.cmd('e ~/notes/Upstart Standup.norg')
-    vim.keymap.set('n', '<ESC>', '<cmd>w | bd<CR>')
-end)
+local function getHostname()
+    local f = io.popen("/bin/hostname")
+    if f then
+        local hostname = f:read("*a") or ""
+        f:close()
+        hostname = string.gsub(hostname, "\n$", "")
+        return hostname
+    end
+    return nil
+end
+if getHostname() == workMachine then
+    require('keymaps.upstart')
+end
 
 -- telescope
 local builtin = require('telescope.builtin')
