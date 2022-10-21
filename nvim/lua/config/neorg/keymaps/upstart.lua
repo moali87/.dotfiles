@@ -4,5 +4,4 @@ vim.keymap.set('n', '<F5>', function ()
         relative='editor', border='double', width=100, height=50, row=1, col=35
     })
     vim.cmd('e ~/notes/work/index.norg')
-    vim.keymap.set('n', '<ESC>', '<cmd>w | bd<CR>')
 end)

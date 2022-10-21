@@ -126,13 +126,4 @@ vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
 -- nmap("<leader>f", "mF:%!eslint_d --stdin --fix-to-stdout<CR>")
 
 -- set spacing
-local indentGroup = vim.api.nvim_create_augroup("Indentation", { clear = true})
-vim.api.nvim_create_autocmd("BufEnter", {
-    pattern = {"*.ts", "*.go", "*.lua"},
-    group = indentGroup,
-    callback = function ()
-        vim.cmd("set shiftwidth=4")
-        vim.cmd("set softtabstop=4")
-        vim.cmd("set tabstop=4")
-    end
-})
+require('config.neorg.autocmd')
