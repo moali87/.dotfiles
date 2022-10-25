@@ -209,7 +209,6 @@ return packer.startup(function()
     -- neorg
     use({
         "nvim-neorg/neorg",
-        run = ":Neorg sync-parsers",
         ft = "norg",
         requires = {
             "nvim-lua/plenary.nvim",
