@@ -74,6 +74,7 @@ return packer.startup(function()
                 requires = {
                     "saadparwaiz1/cmp_luasnip",
                     "hrsh7th/cmp-buffer",
+                    {"tzachar/cmp-tabnine", run = "./install.sh"},
                     "hrsh7th/cmp-cmdline",
                     "hrsh7th/cmp-nvim-lsp",
                     "hrsh7th/cmp-nvim-lsp-signature-help",
