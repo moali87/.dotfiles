@@ -42,7 +42,9 @@ function _exportCreds
         mlstagingrosa \
         mlproductionrosa \
         private \
-        ephemeralrosa
+        ephemeralrosa \
+        ephemeral \
+        delivery
   end
   set -S profiles
   for i in $profiles
