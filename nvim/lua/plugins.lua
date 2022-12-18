@@ -76,6 +76,21 @@ return packer.startup(function()
         }
     })
 
+    -- chatgpt
+    use({
+        "jackMort/ChatGPT.nvim",
+        config = function()
+            require("chatgpt").setup({
+                -- optional configuration
+            })
+        end,
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim"
+        }
+    })
+
     -- cmp and cmp attachments
     use({
         "hrsh7th/nvim-cmp",
