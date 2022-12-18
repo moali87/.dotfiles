@@ -37,6 +37,9 @@ set -x PATH $HOME/.cargo/bin $PATH
 # Ripgrep
 set -x RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/.ripgreprc
 
+# GPG
+set -x GPG_TTY (tty)
+
 # local/bin
 set -x PATH $HOME/.local/bin $PATH
 
