@@ -43,6 +43,11 @@ set -x GPG_TTY (tty)
 # local/bin
 set -x PATH $HOME/.local/bin $PATH
 
+# Config for this machine only
+# Keys
 source ~/.config/private/privateKeys.fish
+
+# Config
+source ~/.config/private/config.fish
 
 theme_gruvbox dark
