@@ -9,6 +9,7 @@ cask "firefox"
 cask "lastpass"
 
 brew "yaml-language-server"
+brew "jless"
 brew "gnupg"
 brew "git-delta"
 brew "wget"
