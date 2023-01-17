@@ -53,6 +53,8 @@ set expandtab
 " set shiftwidth=2
 set ignorecase
 set smartcase
+set smartindent
+set smarttab
 set wildmenu
 set wildmode=full,list
 set nocompatible
