@@ -17,7 +17,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- Need to switch this to snap
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gwa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gwr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
@@ -26,15 +26,15 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "grn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "vc", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts) -- TODO: Need to switch this to snap
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gn", "<cmd>Telescope lsp_references<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
 end
 
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-local configs = require "lspconfig/configs"
+local configs = require("lspconfig/configs")
 
 if not configs.golangcilsp then
     configs.golangcilsp = {
@@ -247,8 +247,3 @@ if vim.o.ft == "clap_input" and vim.o.ft == "guihua" and vim.o.ft == "guihua_rus
         completion = false
     })
 end
-
--- Disable virtual_text from lspconfig.  Should be handled by other plugins
---[[ vim.diagnostic.config({
-  virtual_text = false,
-}) ]]
