@@ -59,7 +59,7 @@ local servers = {
     "solargraph",
     "rust_analyzer",
     "pyright",
-    "tsserver",
+    -- "tsserver",
     "gopls",
     "terraformls",
     "tflint",
