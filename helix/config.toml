@@ -1,0 +1,13 @@
+theme = "monokai"
+
+[editor]
+line-number = "relative"
+mouse = false
+
+[editor.cursor-shape]
+insert = "block"
+normal = "block"
+# select = "underline"
+
+[editor.file-picker]
+hidden = false

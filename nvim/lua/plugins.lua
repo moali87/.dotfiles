@@ -130,6 +130,13 @@ return packer.startup(function()
         end
     })
 
+    -- use({
+    --     'simrat39/rust-tools.nvim',
+    --     config = function()
+    --         require("config.rtools")
+    --     end
+    -- })
+
     -- leap
     use({
         "ggandor/leap.nvim",
