@@ -242,7 +242,6 @@ cmp.setup.filetype("gitcommit", {
     })
 })
 
--- Disable virtual_text from lspconfig.  Should be handled by other plugins
 -- if vim.o.ft == "clap_input" and vim.o.ft == "guihua" and vim.o.ft == "guihua_rust" then
 --     cmp.setup.buffer({
 --         completion = false
