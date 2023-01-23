@@ -40,8 +40,8 @@ set foldlevel=2
 -- VIM Colorscheme
 vim.api.nvim_command("set termguicolors")
 -- vim.api.nvim_command("colorscheme bluloco-dark")
--- vim.api.nvim_command("colorscheme cobalt2")
-vim.api.nvim_command("colorscheme gruvbox-baby")
+vim.api.nvim_command("colorscheme cobalt2")
+-- vim.api.nvim_command("colorscheme gruvbox-baby")
 
 -- VIM editor settings
 vim.opt.guicursor = ""
