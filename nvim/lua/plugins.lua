@@ -38,6 +38,12 @@ return packer.startup(function()
         end
     })
     use({ "ellisonleao/gruvbox.nvim" })
+    -- use({
+    --     "marko-cerovac/material.nvim",
+    --     config = function ()
+    --         require("material")
+    --     end
+    -- })
     use({ "folke/lsp-colors.nvim" })
     use({ "nvim-lua/plenary.nvim" })
     use({ "kdheepak/lazygit.nvim" })
