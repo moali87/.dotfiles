@@ -37,7 +37,19 @@ return packer.startup(function()
             })
         end
     })
-    use({ "ellisonleao/gruvbox.nvim" })
+    -- use({ "ellisonleao/gruvbox.nvim" })
+    use({
+        "uloco/bluloco.nvim",
+        requires = { "rktjmp/lush.nvim" }
+    })
+    use({
+        "lalitmee/cobalt2.nvim",
+        requires = { "tjdevries/colorbuddy.nvim" },
+        config = function ()
+            require('colorbuddy').colorscheme('cobalt2')
+        end
+    })
+    use({ "luisiacc/gruvbox-baby" })
     -- use({
     --     "marko-cerovac/material.nvim",
     --     config = function ()
