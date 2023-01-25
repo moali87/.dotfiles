@@ -50,4 +50,4 @@ source ~/.config/private/privateKeys.fish
 # Config
 source ~/.config/private/config.fish
 
-theme_gruvbox dark
+# theme_gruvbox dark
