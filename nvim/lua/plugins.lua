@@ -42,13 +42,13 @@ return packer.startup(function()
         "uloco/bluloco.nvim",
         requires = { "rktjmp/lush.nvim" }
     })
-    use({
-        "lalitmee/cobalt2.nvim",
-        requires = { "tjdevries/colorbuddy.nvim" },
-        config = function ()
-            require('colorbuddy').colorscheme('cobalt2')
-        end
-    })
+    -- use({
+    --     "lalitmee/cobalt2.nvim",
+    --     requires = { "tjdevries/colorbuddy.nvim" },
+    --     config = function ()
+    --         require('colorbuddy').colorscheme('cobalt2')
+    --     end
+    -- })
     use({ "luisiacc/gruvbox-baby" })
     -- use({
     --     "marko-cerovac/material.nvim",
@@ -108,6 +108,27 @@ return packer.startup(function()
             "nvim-telescope/telescope.nvim"
         }
     })
+
+    use ({
+        'Shatur/neovim-ayu',
+        config = function ()
+            require('ayu').setup({
+                mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
+                overrides = {}, -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
+            })
+        end
+    })
+
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
+        config = function ()
+            require('config.nvimTree')
+        end
+        -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    }
 
     -- cmp and cmp attachments
     use({
