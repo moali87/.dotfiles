@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 
 return {
-  color_scheme = "AyuMirage (Gogh)",
+  color_scheme = "ayu",
   keys = {
     {
       key = 'r',
