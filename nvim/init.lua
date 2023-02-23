@@ -40,7 +40,7 @@ set foldlevel=2
 -- VIM Colorscheme
 vim.api.nvim_command("set termguicolors")
 -- vim.api.nvim_command("colorscheme bluloco-dark")
-vim.api.nvim_command("colorscheme ayu-mirage")
+vim.api.nvim_command("colorscheme ayu")
 -- vim.api.nvim_command("colorscheme gruvbox-baby")
 
 -- VIM editor settings
