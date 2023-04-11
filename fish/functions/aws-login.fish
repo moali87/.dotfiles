@@ -45,7 +45,8 @@ function _exportCreds
         ephemeralrosa \
         ephemeral \
         delivery \
-        autoretailproduction
+        autoretailproduction \
+        mlproduction
   end
   set -S profiles
   for i in $profiles
