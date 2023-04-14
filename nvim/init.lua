@@ -43,6 +43,7 @@ vim.api.nvim_command("set termguicolors")
 -- vim.api.nvim_command("colorscheme ayu")
 -- vim.api.nvim_command("colorscheme gruvbox-baby")
 vim.api.nvim_command("colorscheme monokai")
+-- vim.api.nvim_command("colorscheme tokyonight-night")
 
 -- VIM editor settings
 vim.opt.guicursor = ""

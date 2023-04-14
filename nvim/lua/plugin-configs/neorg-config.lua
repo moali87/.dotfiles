@@ -11,9 +11,13 @@ return {
                 workspace = 
             }
         }, ]]
-        -- ["core.integrations.telescope"] = {},
+        ["core.integrations.telescope"] = {},
         ["core.integrations.nvim-cmp"] = {},
-        ["core.integrations.treesitter"] = {},
+        ["core.integrations.treesitter"] = {
+            config = {
+                config_parsers = true
+            }
+        },
         ["core.norg.dirman"] = {
             config = {
                 workspaces = {

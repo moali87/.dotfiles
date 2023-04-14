@@ -1,6 +1,7 @@
 return {
 	ensure_installed = {
 		"norg",
+        "markdown",
 		"typescript",
 		"lua",
 		"go",

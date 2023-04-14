@@ -128,6 +128,10 @@ return packer.startup(function()
     })
 
     use ({
+        'folke/tokyonight.nvim'
+    })
+
+    use ({
         'Shatur/neovim-ayu',
         config = function ()
             require('ayu').setup({
@@ -151,7 +155,7 @@ return packer.startup(function()
     -- cmp and cmp attachments
     use({
         "hrsh7th/nvim-cmp",
-        after = "nvim-lspconfig",
+        -- after = "nvim-lspconfig",
         -- event = {"InsertEnter *", "CmdlineEnter"}, -- Can"t do this cause it"s slow
         requires = {
             {
@@ -307,12 +311,11 @@ return packer.startup(function()
         "nvim-neorg/neorg",
         run = ":Neorg sync-parsers",
         requires = {
+            "hrsh7th/nvim-cmp",
             "nvim-lua/plenary.nvim",
             "nvim-neorg/neorg-telescope",
             "max397574/neorg-kanban",
-            -- "esquires/neorg-gtd-project-tags",
             "max397574/neorg-contexts",
-            -- "danymat/neorg-gtd-things"
         },
         config = function()
             require("neorg").setup(require("plugin-configs.neorg-config"))
