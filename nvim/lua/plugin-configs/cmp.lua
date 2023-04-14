@@ -74,6 +74,14 @@ for _, lsp in ipairs(servers) do
     }
 end
 
+-- lspconfig.terraformls.setup {
+--     filetypes = {"terraform", "tf"},
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     command = "terraform-ls",
+--     args = {"serve"}
+-- }
+
 lspconfig.lua_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,

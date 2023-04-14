@@ -132,16 +132,16 @@ return packer.startup(function()
         end
     })
 
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons', -- optional, for file icons
-        },
-        config = function ()
-            require('config.nvimTree')
-        end
-        -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
-    }
+    -- use {
+    --     'nvim-tree/nvim-tree.lua',
+    --     requires = {
+    --         'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    --     },
+    --     config = function ()
+    --         require('config.nvimTree')
+    --     end
+    --     -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    -- }
 
     -- cmp and cmp attachments
     use({
@@ -179,6 +179,14 @@ return packer.startup(function()
             require("lualine").setup({
                 options = { theme = "powerline" }
             })
+        end
+    })
+
+    -- hover
+    use ({
+        "Fildo7525/pretty_hover",
+        config = function()
+            require("pretty_hover").setup()
         end
     })
 
