@@ -122,6 +122,11 @@ return packer.startup(function()
         end
     })
 
+    -- colorschemes
+    use ({
+        'tanvirtin/monokai.nvim'
+    })
+
     use ({
         'Shatur/neovim-ayu',
         config = function ()
@@ -300,14 +305,14 @@ return packer.startup(function()
     -- neorg
     use({
         "nvim-neorg/neorg",
-        ft = "norg",
+        run = ":Neorg sync-parsers",
         requires = {
             "nvim-lua/plenary.nvim",
             "nvim-neorg/neorg-telescope",
             "max397574/neorg-kanban",
-            "esquires/neorg-gtd-project-tags",
+            -- "esquires/neorg-gtd-project-tags",
             "max397574/neorg-contexts",
-            "danymat/neorg-gtd-things"
+            -- "danymat/neorg-gtd-things"
         },
         config = function()
             require("neorg").setup(require("plugin-configs.neorg-config"))

@@ -1,6 +1,6 @@
 -- this needs to be set before setting the material colorscheme
 -- vim.g.material_style = "darker"
-vim.o.background = "dark"
+-- vim.o.background = "dark"
 
 require('plugins')
 require('code_actions_utils')
@@ -40,8 +40,9 @@ set foldlevel=2
 -- VIM Colorscheme
 vim.api.nvim_command("set termguicolors")
 -- vim.api.nvim_command("colorscheme bluloco-dark")
-vim.api.nvim_command("colorscheme ayu")
+-- vim.api.nvim_command("colorscheme ayu")
 -- vim.api.nvim_command("colorscheme gruvbox-baby")
+vim.api.nvim_command("colorscheme monokai")
 
 -- VIM editor settings
 vim.opt.guicursor = ""

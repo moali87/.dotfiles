@@ -11,8 +11,9 @@ return {
                 workspace = 
             }
         }, ]]
-        ["core.integrations.telescope"] = {},
-        ["external.kanban"] = {},
+        -- ["core.integrations.telescope"] = {},
+        ["core.integrations.nvim-cmp"] = {},
+        ["core.integrations.treesitter"] = {},
         ["core.norg.dirman"] = {
             config = {
                 workspaces = {
@@ -23,7 +24,6 @@ return {
         },
 		["core.norg.concealer"] = {},
 		["core.norg.qol.toc"] = {},
-		["core.integrations.nvim-cmp"] = {},
 		["core.norg.completion"] = {
 			config = {
 				engine = "nvim-cmp"

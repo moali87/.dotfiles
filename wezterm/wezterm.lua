@@ -1,12 +1,14 @@
 local wezterm = require 'wezterm'
 
-return {
-  color_scheme = "ayu",
-  keys = {
+local config = {}
+config.color_scheme = 'Material (Gogh)'
+config.font = wezterm.font('Fira Code')
+config.keys = {
     {
-      key = 'r',
-      mods = 'CMD|SHIFT',
-      action = wezterm.action.ReloadConfiguration,
-    },
-  },
+        key = 'r',
+        mods = 'CMD|SHIFT',
+        action = wezterm.action.ReloadConfiguration
+    }
 }
+
+return config
