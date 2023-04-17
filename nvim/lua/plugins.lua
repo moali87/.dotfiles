@@ -123,6 +123,7 @@ return packer.startup(function()
     })
 
     -- colorschemes
+    use({'sainnhe/sonokai'})
     use ({
         'tanvirtin/monokai.nvim'
     })

@@ -38,12 +38,18 @@ set foldlevel=2
 ]])
 
 -- VIM Colorscheme
+vim.g.sonokai_style = 'espresso'
+vim.g.sonokai_diagnostic_virtual_text = 'colored'
+vim.g.sonokai_better_performance = 1
+vim.g.sonokai_enable_italic = 1
+vim.g.sonokai_diagnostic_text_highlight = 1
 vim.api.nvim_command("set termguicolors")
 -- vim.api.nvim_command("colorscheme bluloco-dark")
 -- vim.api.nvim_command("colorscheme ayu")
 -- vim.api.nvim_command("colorscheme gruvbox-baby")
-vim.api.nvim_command("colorscheme monokai")
+-- vim.api.nvim_command("colorscheme monokai")
 -- vim.api.nvim_command("colorscheme tokyonight-night")
+vim.api.nvim_command("colorscheme sonokai")
 
 -- VIM editor settings
 vim.opt.guicursor = ""
