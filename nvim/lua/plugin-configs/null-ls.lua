@@ -8,6 +8,7 @@ nls.setup({
     nls.builtins.formatting.eslint,
     -- nls.builtins.diagnostics.eslint_d,
     nls.builtins.diagnostics.eslint,
+    nls.builtins.diagnostics.tsc,
     -- nls.builtins.code_actions.eslint_d,
     nls.builtins.code_actions.eslint,
     nls.builtins.diagnostics.cfn_lint,

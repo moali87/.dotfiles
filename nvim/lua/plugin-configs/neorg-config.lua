@@ -18,7 +18,7 @@ return {
                 config_parsers = true
             }
         },
-        ["core.norg.dirman"] = {
+        ["core.dirman"] = {
             config = {
                 workspaces = {
                     work = "~/notes/work",
@@ -26,9 +26,9 @@ return {
                 }
             }
         },
-		["core.norg.concealer"] = {},
-		["core.norg.qol.toc"] = {},
-		["core.norg.completion"] = {
+		["core.concealer"] = {},
+		["core.qol.toc"] = {},
+		["core.completion"] = {
 			config = {
 				engine = "nvim-cmp"
 			}
