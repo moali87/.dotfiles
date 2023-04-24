@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 
 local config = {}
-config.color_scheme = 'Material (Gogh)'
+config.color_scheme = 'ayu'
 config.font = wezterm.font('Fira Code')
 config.term = 'wezterm'
 config.keys = {
