@@ -1,3 +1,22 @@
+-- VIM Leader key
+vim.g.mapleader = " "
+
+-- lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- require("lazy").setup(plugins, opts)
+
 -- this needs to be set before setting the material colorscheme
 -- vim.g.material_style = "darker"
 -- vim.o.background = "dark"
@@ -7,9 +26,6 @@ require('code_actions_utils')
 require('key-functions')
 
 local workMachine = "LV1XJ97QFQ"
-
--- VIM Leader key
-vim.g.mapleader = " "
 
 -- python3
 vim.g.python3_host_prog = "expand('~/.pyenv/shims/python')"

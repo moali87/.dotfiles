@@ -1,253 +1,24 @@
-local packer = require("packer")
-local use = packer.use
-return packer.startup(function()
-    -- Non lazy loaded plugins
-    use({ "wbthomason/packer.nvim" })
-    use({ "neovim/nvim-lspconfig" })
-    use({ "lewis6991/impatient.nvim", config = function() require("impatient").enable_profile() end })
-    use({
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
-        config = function()
-            require("nvim-treesitter.configs").setup(require("plugin-configs.treesitter"))
-        end
-    })
-    use({ "nvim-treesitter/playground",
-        requires = { "nvim-treesitter/nvim-treesitter" },
-        config = function()
-            require("nvim-treesitter.configs").setup({
-                playground = {
-                    enable = true,
-                    disable = {},
-                    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-                    persist_queries = false, -- Whether the query persists across vim sessions
-                    keybindings = {
-                        toggle_query_editor = 'o',
-                        toggle_hl_groups = 'i',
-                        toggle_injected_languages = 't',
-                        toggle_anonymous_nodes = 'a',
-                        toggle_language_display = 'I',
-                        focus_language = 'f',
-                        unfocus_language = 'F',
-                        update = 'R',
-                        goto_node = '<cr>',
-                        show_help = '?',
-                    },
-                }
-            })
-        end
-    })
-    -- use({ "ellisonleao/gruvbox.nvim" })
-    use({
-        "uloco/bluloco.nvim",
-        requires = { "rktjmp/lush.nvim" }
-    })
-    -- use({
-    --     "lalitmee/cobalt2.nvim",
-    --     requires = { "tjdevries/colorbuddy.nvim" },
-    --     config = function ()
-    --         require('colorbuddy').colorscheme('cobalt2')
-    --     end
-    -- })
-    use({ "luisiacc/gruvbox-baby" })
-    -- use({
-    --     "marko-cerovac/material.nvim",
-    --     config = function ()
-    --         require("material")
-    --     end
-    -- })
-    use({ "folke/lsp-colors.nvim" })
-    use({ "nvim-lua/plenary.nvim" })
-    use({ "kdheepak/lazygit.nvim" })
-
-    -- whichkey
-    use({
-        "folke/which-key.nvim",
-        config = function ()
-            require("which-key").setup{}
-            require("whichkey")
-        end
-    })
-
-    use({
-        "mfussenegger/nvim-dap",
-        requires = {
-            "williamboman/mason.nvim",
-            "folke/which-key.nvim",
-        },
-        -- opt = true,
-        module = { "dap" },
-        config = function()
-            require("dap-config").setup()
-        end
-    })
-
-    use({
-        "theHamsta/nvim-dap-virtual-text",
-        "rcarriga/nvim-dap-ui",
-        "mfussenegger/nvim-dap-python",
-        "nvim-telescope/telescope-dap.nvim",
-        { "leoluz/nvim-dap-go", module = "dap-go" },
-        { "jbyuki/one-small-step-for-vimkind", module = "osv" },
-        requires = {
-            "mfussenegger/nvim-dap",
-        }
-    })
-
-    -- chatgpt
-    use({
-        "jackMort/ChatGPT.nvim",
-        config = function()
-            require("chatgpt").setup({
-                -- optional configuration
-            })
-        end,
-        requires = {
-            "MunifTanjim/nui.nvim",
+local plugins = {
+    {
+        "nvim-neorg/neorg",
+	lazy = true,
+        build = ":Neorg sync-parsers",
+        dependencies = {
+            "hrsh7th/nvim-cmp",
             "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim"
-        }
-    })
-
-    use {
-        "lewis6991/hover.nvim",
-        config = function()
-            require("hover").setup {
-                init = function()
-                    -- Require providers
-                    require("hover.providers.lsp")
-                    -- require('hover.providers.gh')
-                    -- require('hover.providers.gh_user')
-                    -- require('hover.providers.jira')
-                    -- require('hover.providers.man')
-                    -- require('hover.providers.dictionary')
-                end,
-                preview_opts = {
-                    border = nil
-                },
-                -- Whether the contents of a currently open hover window should be moved
-                -- to a :h preview-window when pressing the hover keymap.
-                preview_window = false,
-                title = true
-            }
-
-            -- Setup keymaps
-            vim.keymap.set("n", "K", require("hover").hover, {desc = "hover.nvim"})
-            vim.keymap.set("n", "gK", require("hover").hover_select, {desc = "hover.nvim (select)"})
-        end
-    }
-
-    -- Trouble
-    use({
-        "folke/trouble.nvim",
-        requires = "nvim-tree/nvim-web-devicons",
-        config = function()
-            require("trouble").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
-    })
-
-    -- colorschemes
-    use({'sainnhe/sonokai'})
-    use ({
-        'tanvirtin/monokai.nvim'
-    })
-
-    use ({
-        'folke/tokyonight.nvim'
-    })
-
-    use ({
-        'Shatur/neovim-ayu',
-        config = function ()
-            require('ayu').setup({
-                mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
-                overrides = {}, -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
-            })
-        end
-    })
-
-    -- use {
-    --     'nvim-tree/nvim-tree.lua',
-    --     requires = {
-    --         'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    --     },
-    --     config = function ()
-    --         require('config.nvimTree')
-    --     end
-    --     -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
-    -- }
-
-    -- cmp and cmp attachments
-    use({
-        "hrsh7th/nvim-cmp",
-        -- after = "nvim-lspconfig",
-        -- event = {"InsertEnter *", "CmdlineEnter"}, -- Can"t do this cause it"s slow
-        requires = {
-            {
-                "L3MON4D3/LuaSnip",
-                config = function()
-                    require("plugin-configs.luasnip")
-                end,
-                requires = {
-                    "saadparwaiz1/cmp_luasnip",
-                    "hrsh7th/cmp-buffer",
-                    {"tzachar/cmp-tabnine", run = "./install.sh"},
-                    "hrsh7th/cmp-cmdline",
-                    "hrsh7th/cmp-nvim-lsp",
-                    "hrsh7th/cmp-nvim-lsp-signature-help",
-                    "hrsh7th/cmp-nvim-lua",
-                    "hrsh7th/cmp-path",
-                },
-            },
+            "nvim-neorg/neorg-telescope",
+            "max397574/neorg-kanban",
+            "max397574/neorg-contexts",
         },
         config = function()
-            require("plugin-configs.cmp")
+            require("neorg").setup(require("plugin-configs.neorg-config"))
         end
-    })
-
-    -- lualine
-    use({
-        "nvim-lualine/lualine.nvim",
-        event = "VimEnter",
-        config = function()
-            require("lualine").setup({
-                options = { theme = "powerline" }
-            })
-        end
-    })
-
-    -- hover
-    use ({
-        "Fildo7525/pretty_hover",
-        config = function()
-            require("pretty_hover").setup()
-        end
-    })
-
-    -- use({
-    --     'simrat39/rust-tools.nvim',
-    --     config = function()
-    --         require("config.rtools")
-    --     end
-    -- })
-
-    -- leap
-    use({
-        "ggandor/leap.nvim",
-        event = { "BufEnter", "BufWinEnter" },
-        config = function()
-            require("leap").add_default_mappings()
-        end
-    })
-
-    use({
-        "nvim-telescope/telescope.nvim", tag = "0.1.0",
+    },
+    {
+        "nvim-telescope/telescope.nvim",
+        version = "0.1.1",
         -- or                            , branch = '0.1.x',
-        requires = {
+        dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope-fzf-native.nvim",
             "nvim-telescope/telescope-fzy-native.nvim"
@@ -299,10 +70,126 @@ return packer.startup(function()
             }
             require("telescope").load_extension("fzy_native")
         end
-    })
+    },
+    {
+        "mfussenegger/nvim-dap",
+        lazy = true,
+        dependencies = {
+            "williamboman/mason.nvim",
+            "folke/which-key.nvim",
+        },
+        -- opt = true,
+        -- module = { "dap" },
+        config = function()
+            require("dap-config").setup()
+        end
+    },
+    {
+        "theHamsta/nvim-dap-virtual-text",
+        "rcarriga/nvim-dap-ui",
+        "mfussenegger/nvim-dap-python",
+        "nvim-telescope/telescope-dap.nvim",
+        -- { "leoluz/nvim-dap-go", module = "dap-go" },
+        "leoluz/nvim-dap-go",
+        -- { "jbyuki/one-small-step-for-vimkind", module = "osv" },
+        "jbyuki/one-small-step-for-vimkind",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+        }
+    },
 
-    -- lspinstaller
-    use({
+    {
+        "folke/which-key.nvim",
+        config = function ()
+            require("which-key").setup{}
+            require("whichkey")
+        end
+    },
+
+    { "lewis6991/impatient.nvim", config = function() require("impatient").enable_profile() end },
+    {
+	    "lewis6991/gitsigns.nvim",
+	    tag = "release", -- To use the latest release
+	    config = function()
+		    require("gitsigns").setup()
+	    end
+    },
+    {
+        "windwp/nvim-autopairs",
+        opt = true,
+        dependencies = { { "hrsh7th/nvim-cmp" } },
+        config = function()
+            require("nvim-autopairs").setup()
+        end
+    },
+    {
+        "numToStr/Comment.nvim",
+        opt = true,
+        config = function()
+            require("Comment").setup()
+        end
+    },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        opt = true,
+        config = function()
+            require("indent_blankline").setup {
+                show_current_context = true,
+                show_current_context_start = true,
+                show_end_of_line = true,
+            }
+        end
+    },
+    {
+        "jose-elias-alvarez/null-ls.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("plugin-configs.null-ls")
+        end
+    },
+    {
+        "akinsho/bufferline.nvim",
+        version = "v4.1.*",
+        dependencies = "nvim-tree/nvim-web-devicons",
+        config = function()
+            require("bufferline").setup(
+                require("plugin-configs.bufferline-config")
+            )
+        end
+    },
+    {"nvim-lua/plenary.nvim"},
+    {"famiu/bufdelete.nvim"},
+    {
+        "nvim-lualine/lualine.nvim",
+        config = function()
+            require("plugin-configs.lualine")
+            -- require("lualine").setup({
+            --     options = { theme = "powerline" }
+            -- })
+        end
+    },
+    {
+        "Fildo7525/pretty_hover",
+        config = function()
+            require("pretty_hover").setup()
+        end
+    },
+    {
+        "ggandor/leap.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("leap").add_default_mappings()
+        end
+    },
+
+    { "kdheepak/lazygit.nvim" },
+    {"sainnhe/sonokai"},
+    {
+	"uloco/bluloco.nvim",
+        dependencies = { "rktjmp/lush.nvim" }
+    },
+    {"neovim/nvim-lspconfig"},
+    {
         "williamboman/mason.nvim",
         config = function()
             require("mason").setup({
@@ -316,92 +203,123 @@ return packer.startup(function()
                 }
             })
         end
-    })
-
-    -- Lazyloaded plugins
-    -- null-ls
-    use({
-        "jose-elias-alvarez/null-ls.nvim",
-        requires = { "nvim-lua/plenary.nvim" },
+    },
+    {
+	"lewis6991/hover.nvim",
         config = function()
-            require("plugin-configs.null-ls")
-        end
-    })
-
-    -- bufdelete
-    use({
-        "famiu/bufdelete.nvim",
-        event = "BufWinEnter"
-    })
-
-
-    -- neorg
-    use({
-        "nvim-neorg/neorg",
-        run = ":Neorg sync-parsers",
-        requires = {
-            "hrsh7th/nvim-cmp",
-            "nvim-lua/plenary.nvim",
-            "nvim-neorg/neorg-telescope",
-            "max397574/neorg-kanban",
-            "max397574/neorg-contexts",
-        },
-        config = function()
-            require("neorg").setup(require("plugin-configs.neorg-config"))
-        end
-    })
-
-    -- bufferline
-    use({
-        "akinsho/bufferline.nvim",
-        event = "BufWinEnter",
-        tag = "v2.*",
-        config = function()
-            require("bufferline").setup(
-                require("plugin-configs.bufferline-config")
-            )
-        end
-    })
-
-    -- comment
-    use({
-        "numToStr/Comment.nvim",
-        event = "BufWinEnter",
-        config = function()
-            require("Comment").setup()
-        end
-    })
-
-    -- blankline
-    use({
-        "lukas-reineke/indent-blankline.nvim",
-        event = "BufWinEnter",
-        config = function()
-            require("indent_blankline").setup {
-                show_current_context = true,
-                show_current_context_start = true,
-                show_end_of_line = true,
+            require("hover").setup {
+                init = function()
+                    -- Require providers
+                    require("hover.providers.lsp")
+                    -- require('hover.providers.gh')
+                    -- require('hover.providers.gh_user')
+                    -- require('hover.providers.jira')
+                    -- require('hover.providers.man')
+                    -- require('hover.providers.dictionary')
+                end,
+                preview_opts = {
+                    border = nil
+                },
+                -- Whether the contents of a currently open hover window should be moved
+                -- to a :h preview-window when pressing the hover keymap.
+                preview_window = false,
+                title = true
             }
-        end
-    })
 
-    -- gitsigns
-    use({
-        "lewis6991/gitsigns.nvim",
-        event = "BufWinEnter",
-        tag = "release", -- To use the latest release
-        config = function()
-            require("gitsigns").setup()
+            -- Setup keymaps
+            vim.keymap.set("n", "K", require("hover").hover, {desc = "hover.nvim"})
+            vim.keymap.set("n", "gK", require("hover").hover_select, {desc = "hover.nvim (select)"})
         end
-    })
+    },
+    {
+        "williamboman/mason.nvim",
+        config = function()
+            require("mason").setup({
+                automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+                ui = {
+                    icons = {
+                        server_installed = "✓",
+                        server_pending = "➜",
+                        server_uninstalled = "✗"
+                    }
+                }
+            })
+        end
+    },
+    {
+        "L3MON4D3/LuaSnip",
+        version = "1.*"
+    },
+    {
+	"hrsh7th/nvim-cmp",
+	dependencies = {
+	    "saadparwaiz1/cmp_luasnip",
+	    "hrsh7th/cmp-buffer",
+	    {"tzachar/cmp-tabnine", run = "./install.sh"},
+	    "hrsh7th/cmp-cmdline",
+	    "hrsh7th/cmp-nvim-lsp",
+	    "hrsh7th/cmp-nvim-lsp-signature-help",
+	    "hrsh7th/cmp-nvim-lua",
+	    "hrsh7th/cmp-path",
+	},
+        config = function()
+            require("plugin-configs.cmp")
+        end
+    },
+    {"folke/lsp-colors.nvim"},
+    {
+        "tzachar/cmp-tabnine",
+        build = "./install.sh"
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate",
+        config = function()
+            require("nvim-treesitter.configs").setup(require("plugin-configs.treesitter"))
+        end
+    },
+    { "nvim-treesitter/playground",
+        requires = { "nvim-treesitter/nvim-treesitter" },
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                playground = {
+                    enable = true,
+                    disable = {},
+                    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+                    persist_queries = false, -- Whether the query persists across vim sessions
+                    keybindings = {
+                        toggle_query_editor = 'o',
+                        toggle_hl_groups = 'i',
+                        toggle_injected_languages = 't',
+                        toggle_anonymous_nodes = 'a',
+                        toggle_language_display = 'I',
+                        focus_language = 'f',
+                        unfocus_language = 'F',
+                        update = 'R',
+                        goto_node = '<cr>',
+                        show_help = '?',
+                    },
+                }
+            })
+        end
+    }
+}
+-- require("lazy").setup({
+--   "folke/which-key.nvim",
+--   { "folke/neoconf.nvim", cmd = "Neoconf" },
+--   "folke/neodev.nvim",
+-- })
 
-    -- autopairs
-    use({
-        "windwp/nvim-autopairs",
-        event = "BufWinEnter",
-        requires = { { "hrsh7th/nvim-cmp" } },
-        config = function()
-            require("nvim-autopairs").setup()
-        end
-    })
-end)
+return require("lazy").setup(plugins)
+
+---
+-- local packer = require("packer")
+-- local use = packer.use
+-- return packer.startup(function()
+--     -- Non lazy loaded plugins
+--     use({ "wbthomason/packer.nvim" })
+-- 
+-- 
+-- 
+-- 
+-- end)
