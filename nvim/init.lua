@@ -160,6 +160,8 @@ vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
 
 -- Eslint mapping
 -- nmap("<leader>f", "mF:%!eslint_d --stdin --fix-to-stdout<CR>")
+-- floaterm
+vim.keymap.set('n', '<leader>gj', ':FloatermNew --height=0.95 --width=0.95 --wintype=float --autoclose=0 jirust<CR>')
 
 -- set spacing
 require('config.base.keymaps')

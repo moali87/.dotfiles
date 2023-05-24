@@ -1,4 +1,5 @@
 local plugins = {
+    {"voldikss/vim-floaterm"},
     {
         "nvim-neorg/neorg",
         build = ":Neorg sync-parsers",
