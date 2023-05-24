@@ -45,6 +45,9 @@ set rtp+=~/.local/share/nvm/v16.17.1
 set rtp+=~/opt/homebrew/bin/
 ]])
 
+-- impatientLike
+vim.loader.enable()
+
 -- VIM folding
 vim.api.nvim_command([[
 set foldmethod=indent

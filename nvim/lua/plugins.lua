@@ -1,7 +1,7 @@
 local plugins = {
     {
         "nvim-neorg/neorg",
-	lazy = true,
+        lazy = true,
         build = ":Neorg sync-parsers",
         dependencies = {
             "hrsh7th/nvim-cmp",
@@ -105,8 +105,6 @@ local plugins = {
             require("whichkey")
         end
     },
-
-    { "lewis6991/impatient.nvim", config = function() require("impatient").enable_profile() end },
     {
 	    "lewis6991/gitsigns.nvim",
 	    tag = "release", -- To use the latest release
@@ -116,7 +114,6 @@ local plugins = {
     },
     {
         "windwp/nvim-autopairs",
-        opt = true,
         dependencies = { { "hrsh7th/nvim-cmp" } },
         config = function()
             require("nvim-autopairs").setup()
@@ -124,14 +121,12 @@ local plugins = {
     },
     {
         "numToStr/Comment.nvim",
-        opt = true,
         config = function()
             require("Comment").setup()
         end
     },
     {
         "lukas-reineke/indent-blankline.nvim",
-        opt = true,
         config = function()
             require("indent_blankline").setup {
                 show_current_context = true,
@@ -176,7 +171,6 @@ local plugins = {
     },
     {
         "ggandor/leap.nvim",
-        event = "VeryLazy",
         config = function()
             require("leap").add_default_mappings()
         end
@@ -279,7 +273,7 @@ local plugins = {
         end
     },
     { "nvim-treesitter/playground",
-        requires = { "nvim-treesitter/nvim-treesitter" },
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
         config = function()
             require("nvim-treesitter.configs").setup({
                 playground = {
