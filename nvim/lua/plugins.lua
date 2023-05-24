@@ -1,7 +1,6 @@
 local plugins = {
     {
         "nvim-neorg/neorg",
-        lazy = true,
         build = ":Neorg sync-parsers",
         dependencies = {
             "hrsh7th/nvim-cmp",
@@ -177,9 +176,17 @@ local plugins = {
     },
 
     { "kdheepak/lazygit.nvim" },
+    { "EdenEast/nightfox.nvim" },
     {"sainnhe/sonokai"},
     {
-	"uloco/bluloco.nvim",
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
+    { "catppuccin/nvim", name = "catppuccin" },
+    {
+        "uloco/bluloco.nvim",
         dependencies = { "rktjmp/lush.nvim" }
     },
     {"neovim/nvim-lspconfig"},
