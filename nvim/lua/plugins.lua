@@ -298,22 +298,5 @@ local plugins = {
         end
     }
 }
--- require("lazy").setup({
---   "folke/which-key.nvim",
---   { "folke/neoconf.nvim", cmd = "Neoconf" },
---   "folke/neodev.nvim",
--- })
 
 return require("lazy").setup(plugins)
-
----
--- local packer = require("packer")
--- local use = packer.use
--- return packer.startup(function()
---     -- Non lazy loaded plugins
---     use({ "wbthomason/packer.nvim" })
--- 
--- 
--- 
--- 
--- end)

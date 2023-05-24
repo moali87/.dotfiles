@@ -15,8 +15,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- require("lazy").setup(plugins, opts)
-
 -- this needs to be set before setting the material colorscheme
 -- vim.g.material_style = "darker"
 -- vim.o.background = "dark"
