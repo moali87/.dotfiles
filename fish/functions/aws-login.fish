@@ -32,6 +32,7 @@ function _exportCreds
         dedatalakestaging \
         dedatalakeprod \
         infosecprod \
+        infosecstaging \
         prodigyplayground \
         itinfrastructure \
         prodigytest \
@@ -39,6 +40,7 @@ function _exportCreds
         prodigyproduction \
         destagingrosa \
         deproductionrosa \
+        mestaging \
         mlstagingrosa \
         mlproductionrosa \
         private \
