@@ -1,6 +1,17 @@
 local plugins = {
     {"voldikss/vim-floaterm"},
     {
+        "pwntester/octo.nvim",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function ()
+            require"octo".setup()
+        end
+    },
+    {
         "nvim-neorg/neorg",
         build = ":Neorg sync-parsers",
         dependencies = {
