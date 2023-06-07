@@ -48,7 +48,8 @@ function _exportCreds
         ephemeral \
         delivery \
         autoretailproduction \
-        mlproduction
+        mlproduction \
+        autoretaildemo
   end
   set -S profiles
   for i in $profiles
