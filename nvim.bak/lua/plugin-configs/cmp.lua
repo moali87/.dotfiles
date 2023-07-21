@@ -57,7 +57,7 @@ lspconfig.golangci_lint_ls.setup {
 local servers = {
     "clangd",
     "solargraph",
-    "rust_analyzer",
+    -- "rust_analyzer",
     "pyright",
     "tsserver",
     "gopls",
@@ -81,6 +81,16 @@ end
 --     command = "terraform-ls",
 --     args = {"serve"}
 -- }
+
+lspconfig.rust_analyzer.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        checkOnSave = {
+            command = "clippy",
+        }
+    }
+}
 
 lspconfig.lua_ls.setup {
     on_attach = on_attach,
