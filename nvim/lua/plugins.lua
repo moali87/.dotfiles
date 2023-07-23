@@ -11,20 +11,20 @@ local plugins = {
             require"octo".setup()
         end
     },
-    {
-        "nvim-neorg/neorg",
-        build = ":Neorg sync-parsers",
-        dependencies = {
-            "hrsh7th/nvim-cmp",
-            "nvim-lua/plenary.nvim",
-            "nvim-neorg/neorg-telescope",
-            "max397574/neorg-kanban",
-            "max397574/neorg-contexts",
-        },
-        config = function()
-            require("neorg").setup(require("plugin-configs.neorg-config"))
-        end
-    },
+    -- {
+    --     "nvim-neorg/neorg",
+    --     build = ":Neorg sync-parsers",
+    --     dependencies = {
+    --         "hrsh7th/nvim-cmp",
+    --         "nvim-lua/plenary.nvim",
+    --         "nvim-neorg/neorg-telescope",
+    --         "max397574/neorg-kanban",
+    --         "max397574/neorg-contexts",
+    --     },
+    --     config = function()
+    --         require("neorg").setup(require("plugin-configs.neorg-config"))
+    --     end
+    -- },
     {
         "nvim-telescope/telescope.nvim",
         version = "0.1.1",
