@@ -6,7 +6,7 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 local opts = { noremap = true, silent = true }
 
 
-vim.api.nvim_set_keymap("n", "ge", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+vim.api.nvim_set_keymap("n", "gE", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 vim.api.nvim_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 vim.api.nvim_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 vim.api.nvim_set_keymap("n", "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
