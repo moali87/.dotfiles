@@ -24,6 +24,7 @@ function _exportCreds
         payer \
         networks \
         playground \
+        playground-eng-admin \
         playgroundrosa \
         machinelearning \
         productionrosa \
