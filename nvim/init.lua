@@ -151,6 +151,9 @@ if getHostname() == workMachine then
     require('config.neorg.keymaps.upstart')
 end
 
+-- Trouble
+require('config.trouble.keymaps')
+
 -- telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>o', builtin.find_files, {})
