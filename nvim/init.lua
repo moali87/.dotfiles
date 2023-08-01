@@ -118,16 +118,6 @@ nmap("<Leader>q", ":bd<CR>")
 nmap("<Leader>Q", ":bd!<CR>")
 nmap("<Leader>s", ":vert sb")
 
--- Map panel movement keys
--- Down
-nmap("<Leader>v", "<C-W><C-J>")
--- Up
-nmap("<Leader>r", "<C-W><C-K>")
--- Left
-nmap("<Leader>f", "<C-W><C-H>")
--- Right
-nmap("<Leader>j", "<C-W><C-L>")
-
 -- Map Terminal
 tmap("<Leader><ESC>", "<C-\\><C-n>")
 tmap("<F9>", "<cmd> vsplit | term<CR>")

@@ -1,11 +1,11 @@
 local wk = require("which-key")
 local mappings = {
-        ["<C-h>"] = { "<cmd>NvimTmuxNavigateLeft<cr>", "Find File" },
-        ["<C-j>"] = { "<cmd>NvimTmuxNavigateDown<cr>", "Find File" },
-        ["<C-k>"] = { "<cmd>NvimTmuxNavigateUp<cr>", "Find File" },
-        ["<C-l>"] = { "<cmd>NvimTmuxNavigateRight<cr>", "Find File" },
-        ["<C-\\>"] = { "<cmd>NvimTmuxNavigateLastActive<cr>", "Find File" },
-        ["<C-n>"] = { "<cmd>NvimTmuxNavigateNext<cr>", "Find File" },
+        ["<C-h>"] = { "<cmd>NvimTmuxNavigateLeft<cr>", "Move left" },
+        ["<C-j>"] = { "<cmd>NvimTmuxNavigateDown<cr>", "Move down" },
+        ["<C-k>"] = { "<cmd>NvimTmuxNavigateUp<cr>", "Move up" },
+        ["<C-l>"] = { "<cmd>NvimTmuxNavigateRight<cr>", "Move right" },
+        ["<C-\\>"] = { "<cmd>NvimTmuxNavigateLastActive<cr>", "Move last" },
+        ["<C-n>"] = { "<cmd>NvimTmuxNavigateNext<cr>", "Move next" },
 }
 
 wk.register(mappings)
