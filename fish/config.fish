@@ -14,7 +14,7 @@ status --is-interactive; and rbenv init - fish | source
 
 # Pyenv
 set -Ux PYENV_ROOT $HOME/.pyenv
-set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+fish_add_path $PYENV_ROOT/bin
 pyenv init - | source
 
 # Neovim
