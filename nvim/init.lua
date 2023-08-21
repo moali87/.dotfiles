@@ -74,7 +74,7 @@ vim.api.nvim_command("colorscheme terafox")
 vim.opt.guicursor = ""
 vim.api.nvim_command([[
 set mouse=
-set cmdheight=0
+set cmdheight=2
 set timeoutlen=0
 set scrolloff=10
 set relativenumber
