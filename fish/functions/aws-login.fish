@@ -8,7 +8,7 @@ function _exportCreds
   switch $host
     case 'Akhters-MacBook-Pro.local'
       set profiles personal
-    case 'LV1XJ97QFQ' # Upsatrt
+    case 'LV1XJ97QFQ' # Upstart
       set profiles stagingrosa \
         prodigy \
         fairlendingaudit \
@@ -50,7 +50,11 @@ function _exportCreds
         delivery \
         autoretailproduction \
         mlproduction \
-        autoretaildemo
+        autoretaildemo \
+        qualityengstaging \
+        qualityengproduction \
+        swestaging \
+        sweproduction
   end
   set -S profiles
   for i in $profiles

@@ -1,20 +1,19 @@
 return {
 	ensure_installed = {
-		"norg",
-        "markdown",
-		"typescript",
-		"lua",
-		"go",
-		"ruby",
+		"bash",
 		"fish",
+		"go",
+		"hcl",
 		"html",
 		"javascript",
 		"jsdoc",
 		"json",
-		"jsdoc",
+		"lua",
+		"norg",
+		"ruby",
+		"typescript",
 		"yaml",
-		"bash",
-		"hcl"
+        "markdown",
 	},
    -- Automatically install missing parsers when entering buffer
   auto_install = true,
