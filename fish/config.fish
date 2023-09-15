@@ -51,3 +51,6 @@ source ~/.config/private/privateKeys.fish
 source ~/.config/private/config.fish
 
 # theme_gruvbox dark
+
+# TFENV
+set -x PATH $HOME/.tfenv/bin $PATH
