@@ -1,4 +1,5 @@
 local plugins = {
+    { 'projekt0n/caret.nvim' },
     {
         "m4xshen/hardtime.nvim",
         dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
@@ -210,9 +211,24 @@ local plugins = {
             }
         end
     },
+    -- {
+    --     "mfussenegger/nvim-lint",
+    --     dependencies = { "neovim/nvim-lspconfig", "williamboman/mason.nvim" },
+    --     config = function ()
+    --         require("plugin-configs.nvim-lint")
+    --     end
+    -- },
+    -- {
+    --     "rshkarin/mason-nvim-lint",
+    --     dependencies = { "mfussenegger/nvim-lint" },
+    --     config = function ()
+    --         require("plugin-configs.mason-nvim-lint")
+    --     end
+    -- },
     {
         "jose-elias-alvarez/null-ls.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
+        enabled = true,
         config = function()
             require("plugin-configs.null-ls")
         end
