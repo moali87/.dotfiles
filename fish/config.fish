@@ -48,7 +48,9 @@ set -x PATH $HOME/.local/bin $PATH
 source ~/.config/private/privateKeys.fish
 
 # Config
-source ~/.config/private/config.fish
+if test -e ~/.config/private/config.fish
+  source ~/.config/private/config.fish
+end
 
 # theme_gruvbox dark
 
