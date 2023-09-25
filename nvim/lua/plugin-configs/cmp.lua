@@ -5,15 +5,12 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 local opts = { noremap = true, silent = true }
 
-
-vim.api.nvim_set_keymap("n", "gE", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-vim.api.nvim_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-vim.api.nvim_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-vim.api.nvim_set_keymap("n", "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-
 local on_attach = function(client, bufnr)
+    -- opts = { noremap = true, silent = true, buffer = bufnr }
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
@@ -57,7 +54,7 @@ lspconfig.golangci_lint_ls.setup {
 local servers = {
     "clangd",
     "solargraph",
-    "rust_analyzer",
+    -- "rust_analyzer",
     "pyright",
     "tsserver",
     "gopls",
@@ -82,7 +79,7 @@ end
 --     args = {"serve"}
 -- }
 
-lspconfig.rust_analyzer.setup {
+lspconfig["rust_analyzer"].setup {
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
@@ -92,7 +89,7 @@ lspconfig.rust_analyzer.setup {
     }
 }
 
-lspconfig.lua_ls.setup {
+lspconfig["lua_ls"].setup {
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
