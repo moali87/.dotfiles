@@ -9,6 +9,10 @@ local on_attach = function(client, bufnr)
     -- opts = { noremap = true, silent = true, buffer = bufnr }
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
+    vim.api.nvim_set_keymap("n", "gE", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+    vim.api.nvim_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+    vim.api.nvim_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+    vim.api.nvim_set_keymap("n", "gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
