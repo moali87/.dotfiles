@@ -45,7 +45,9 @@ set -x PATH $HOME/.local/bin $PATH
 
 # Config for this machine only
 # Keys
-source ~/.config/private/privateKeys.fish
+if test -e ~/.config/private/privateKeys.fish
+  source ~/.config/private/privateKeys.fish
+end
 
 # Config
 if test -e ~/.config/private/config.fish
