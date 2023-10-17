@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- this needs to be set before setting the material colorscheme
 -- vim.g.material_style = "darker"
--- vim.o.background = "dark"
+vim.o.background = "dark"
 
 require('plugins')
 require('code_actions_utils')

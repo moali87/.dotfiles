@@ -203,13 +203,15 @@ local plugins = {
     },
     {
         "lukas-reineke/indent-blankline.nvim",
-        config = function()
-            require("indent_blankline").setup {
-                show_current_context = true,
-                show_current_context_start = true,
-                show_end_of_line = true,
-            }
-        end
+        main = "ibl",
+        opts = {},
+        -- config = function()
+        --     require("ibl").setup {
+        --         show_current_context = true,
+        --         show_current_context_start = true,
+        --         show_end_of_line = true,
+        --     }
+        -- end
     },
     -- {
     --     "mfussenegger/nvim-lint",
