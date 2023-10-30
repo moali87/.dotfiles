@@ -58,7 +58,6 @@ lspconfig["golangci_lint_ls"].setup {
 local servers = {
     "clangd",
     "solargraph",
-    -- "rust_analyzer",
     "pyright",
     "tsserver",
     "gopls",
@@ -83,12 +82,40 @@ end
 --     args = {"serve"}
 -- }
 
+-- require'lspconfig'.rust_analyzer.setup {
+--     on_attach = on_attach,
+--     settings = {
+--         ["rust-analyzer"] = {
+--             assist = {
+--                 importMergeBehavior = "last",
+--                 importPrefix = "by_self",
+--             },
+--             -- diagnostics = {
+--             --   disabled = { "unresolved-import" }
+--             -- },
+--             cargo = {
+--                 loadOutDirsFromCheck = true
+--             },
+--             procMacro = {
+--                 enable = true
+--             },
+--             checkOnSave = {
+--                 command = "clippy"
+--             },
+--         }
+--     }
+-- }
+
 lspconfig["rust_analyzer"].setup {
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
-        checkOnSave = {
-            command = "clippy",
+        ["rust-analyzer"] = {
+            checkOnSave = {
+                enable = true,
+                command = "clippy",
+                features = "all"
+            }
         }
     }
 }
