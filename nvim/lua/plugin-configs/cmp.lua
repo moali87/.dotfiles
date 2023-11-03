@@ -26,7 +26,7 @@ local on_attach = function(client, bufnr)
         "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "grn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "vc", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gvc", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gn", "<cmd>Telescope lsp_references<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
 end
@@ -55,12 +55,24 @@ lspconfig["golangci_lint_ls"].setup {
     capabilities = capabilities,
 }
 
+lspconfig.gopls.setup {
+    filetypes = { "go", "gomod" },
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        gopls = {
+            analyses = {
+                fillstruct = true,
+            },
+        },
+    },
+}
+
 local servers = {
     "clangd",
     "solargraph",
     "pyright",
     "tsserver",
-    "gopls",
     "terraformls",
     "tflint",
     "yamlls",
@@ -244,7 +256,7 @@ cmp.setup({
         { name = "luasnip" }, -- For luasnip users.
         { name = "nvim_lsp" },
         { name = "nvim_lsp_signature_help" },
-        { name = "nvim_lua", ft = "lua" },
+        { name = "nvim_lua",               ft = "lua" },
         { name = "neorg" },
         { name = "path" },
         { name = "fish" },
