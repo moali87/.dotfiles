@@ -86,6 +86,19 @@ for _, lsp in ipairs(servers) do
     }
 end
 
+lspconfig.astro.setup {
+    filetypes = { "astro" },
+    on_attach = on_attach,
+    capabilities = capabilities,
+    -- settings = {
+    --     gopls = {
+    --         analyses = {
+    --             fillstruct = true,
+    --         },
+    --     },
+    -- },
+}
+
 -- lspconfig.terraformls.setup {
 --     filetypes = {"terraform", "tf"},
 --     on_attach = on_attach,
