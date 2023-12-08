@@ -28,8 +28,8 @@ set -x PATH $HOME/go/bin $PATH
 starship init fish | source
 
 # NVM
-nvm use v16
-set -Ux NVM_DIR $HOME/.local/share/nvm
+# nvm use v16
+# set -Ux NVM_DIR $HOME/.local/share/nvm
 
 # Rust
 set -x PATH $HOME/.cargo/bin $PATH
