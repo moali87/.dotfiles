@@ -1,8 +1,8 @@
 local wezterm = require 'wezterm'
 
 local config = {}
-config.color_scheme = 'terafox'
-config.color_scheme_dirs = {'./colorschemes'}
+config.color_scheme = 'GruvboxDark'
+-- config.color_scheme_dirs = {'./colorschemes'}
 -- config.color_scheme = 'Material (Gogh)'
 config.font = wezterm.font('Fira Code')
 config.term = 'wezterm'

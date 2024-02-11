@@ -1,4 +1,5 @@
 local plugins = {
+    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
     { 'projekt0n/caret.nvim' },
     -- Custom Parameters (with defaults)
     {
