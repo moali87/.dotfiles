@@ -323,6 +323,7 @@ local plugins = {
     },
     {
 	"lewis6991/hover.nvim",
+        lazy = false,
         config = function()
             require("hover").setup {
                 init = function()
