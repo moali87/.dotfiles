@@ -1,4 +1,15 @@
 local plugins = {
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("nvim-tree").setup {}
+        end,
+    },
     { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
     { 'projekt0n/caret.nvim' },
     -- Custom Parameters (with defaults)
