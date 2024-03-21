@@ -49,11 +49,11 @@ table.insert(runtime_path, "lua/?/init.lua")
 --     }
 -- end
 
-lspconfig["golangci_lint_ls"].setup {
-    filetypes = { "go", "gomod" },
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
+-- lspconfig["golangci_lint_ls"].setup {
+--     filetypes = { "go", "gomod" },
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+-- }
 
 lspconfig.gopls.setup {
     filetypes = { "go", "gomod" },
