@@ -1,6 +1,3 @@
-# fzf
-fzf --fish | source
-
 # FZF Preview file content using bat (https://github.com/sharkdp/bat)
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target
@@ -42,7 +39,7 @@ pyenv init - | source
 
 # Neovim
 set -x NVIM_FOLDER $HOME/.config/nvim
-set -x EDITOR nvim 
+set -x EDITOR nvim
 
 # Golang
 set -x PATH $HOME/go/bin $PATH
@@ -81,4 +78,7 @@ end
 
 # TFENV
 set -x PATH $HOME/.tfenv/bin $PATH
+
+# fzf
+fzf --fish | source
 
