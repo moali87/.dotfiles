@@ -81,4 +81,3 @@ set -x PATH $HOME/.tfenv/bin $PATH
 
 # fzf
 fzf --fish | source
-
