@@ -64,8 +64,9 @@ vim.api.nvim_command("set termguicolors")
 -- vim.api.nvim_command("colorscheme tokyonight-night")
 -- vim.api.nvim_command("colorscheme sonokai")
 -- vim.api.nvim_command("colorscheme terafox")
-vim.api.nvim_command("colorscheme gruvbox")
+-- vim.api.nvim_command("colorscheme gruvbox")
 -- vim.api.nvim_command("colorscheme catppuccin-mocha")
+vim.api.nvim_command("colorscheme monokai-pro")
 
 -- VIM editor settings
 vim.opt.guicursor = ""

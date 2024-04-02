@@ -1,5 +1,11 @@
 local plugins = {
     {
+        "loctvl842/monokai-pro.nvim",
+        config = function()
+            require("monokai-pro").setup()
+        end
+    },
+    {
         "nvim-tree/nvim-tree.lua",
         version = "*",
         lazy = false,
@@ -294,10 +300,10 @@ local plugins = {
     {
         "nvim-lualine/lualine.nvim",
         config = function()
-            require("plugin-configs.lualine")
-            -- require("lualine").setup({
-            --     options = { theme = "powerline" }
-            -- })
+            -- require("plugin-configs.lualine")
+            require("lualine").setup({
+                options = { theme = "monokai-pro" }
+            })
         end
     },
     {
