@@ -142,9 +142,6 @@ end
 -- Trouble
 require('config.trouble.keymaps')
 
--- Tmux
-require('config.nvim-tmux-navigator.keymaps')
-
 -- telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>o', builtin.find_files, {})

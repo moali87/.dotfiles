@@ -1,22 +1,24 @@
 local plugins = {
+    { "MunifTanjim/nui.nvim" },
     {
         "loctvl842/monokai-pro.nvim",
+        priority = 1000 ,
         config = function()
             require("monokai-pro").setup()
         end
     },
-    {
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        lazy = false,
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
-        config = function()
-            require("nvim-tree").setup {}
-        end,
-    },
-    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
+    -- {
+    --     "nvim-tree/nvim-tree.lua",
+    --     version = "*",
+    --     lazy = false,
+    --     dependencies = {
+    --         "nvim-tree/nvim-web-devicons",
+    --     },
+    --     config = function()
+    --         require("nvim-tree").setup {}
+    --     end,
+    -- },
+    -- { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
     { "projekt0n/caret.nvim" },
     {
         "olexsmir/gopher.nvim",
@@ -71,22 +73,6 @@ local plugins = {
                     -- end,
                 },
             })
-        end
-    },
-    {
-        "alexghergh/nvim-tmux-navigation" ,
-        config = function ()
-            require'nvim-tmux-navigation'.setup {
-                disable_when_zoomed = true, -- defaults to false
-                keybindings = {
-                    left = "<C-h>",
-                    down = "<C-j>",
-                    up = "<C-k>",
-                    right = "<C-l>",
-                    last_active = "<C-\\>",
-                    next = "<C-Space>",
-                }
-            }
         end
     },
     -- {
@@ -303,6 +289,7 @@ local plugins = {
             -- require("plugin-configs.lualine")
             require("lualine").setup({
                 options = { theme = "monokai-pro" }
+                -- options = { theme = "molokai" }
             })
         end
     },
@@ -322,12 +309,12 @@ local plugins = {
     { "kdheepak/lazygit.nvim" },
     { "EdenEast/nightfox.nvim" },
     {"sainnhe/sonokai"},
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
-    },
+    -- {
+    --     "folke/tokyonight.nvim",
+    --     lazy = false,
+    --     priority = 1000,
+    --     opts = {},
+    -- },
     { "catppuccin/nvim", name = "catppuccin" },
     {
         "uloco/bluloco.nvim",
