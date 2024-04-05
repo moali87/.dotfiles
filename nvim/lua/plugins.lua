@@ -20,24 +20,6 @@ local plugins = {
     -- },
     -- { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
     { "projekt0n/caret.nvim" },
-    {
-        "olexsmir/gopher.nvim",
-        config = function()
-            require("gopher").setup({})
-        end
-    },
-    {
-        "crusj/structrue-go.nvim",
-        config = function()
-            require("structrue-go").setup()
-        end
-    },
-    {
-        "crispgm/nvim-go",
-        config = function()
-            require("go").setup({})
-        end
-    },
     -- Custom Parameters (with defaults)
     {
         "David-Kunz/gen.nvim",

@@ -10,16 +10,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end
 })
 
-vim.api.nvim_create_autocmd("BufEnter", {
-    pattern = {"*.norg"},
-    group = indentGroup,
-    callback = function ()
-        vim.api.nvim_command("set shiftwidth=2")
-        vim.api.nvim_command("set softtabstop=2")
-        vim.api.nvim_command("set tabstop=2")
-    end
-})
-
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
