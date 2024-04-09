@@ -268,11 +268,12 @@ local plugins = {
     {
         "nvim-lualine/lualine.nvim",
         config = function()
+            require("lualine").setup()
             -- require("plugin-configs.lualine")
-            require("lualine").setup({
-                options = { theme = "monokai-pro" }
-                -- options = { theme = "molokai" }
-            })
+            -- require("lualine").setup({
+            --     options = { theme = "monokai-pro" }
+            --     -- options = { theme = "molokai" }
+            -- })
         end
     },
     {

@@ -10,6 +10,8 @@ function _exportCreds
       set profiles personal
     case 'LV1XJ97QFQ' # Upstart
       set profiles stagingrosa \
+        destaging \
+        deproduction \
         prodigy \
         fairlendingaudit \
         itsandbox \

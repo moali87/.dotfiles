@@ -47,10 +47,6 @@ set -x PATH $HOME/go/bin $PATH
 # Starship
 starship init fish | source
 
-# NVM
-# nvm use v16
-# set -Ux NVM_DIR $HOME/.local/share/nvm
-
 # Rust
 set -x PATH $HOME/.cargo/bin $PATH
 
@@ -81,3 +77,7 @@ set -x PATH $HOME/.tfenv/bin $PATH
 
 # fzf
 fzf --fish | source
+
+# Nodejs N
+set -x PATH $HOME/n/bin $PATH
+set -x N_PREFIX $HOME/n/
