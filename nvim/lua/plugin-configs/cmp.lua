@@ -35,7 +35,18 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
--- local configs = require("lspconfig/configs")
+local configs = require("lspconfig/configs")
+if not configs.regols then
+    configs.regols = {
+        default_config = {
+          cmd = {'regols'};
+          filetypes = { 'rego' };
+          root_dir = lspconfig.util.root_pattern(".git");
+        }
+    }
+end
+configs.regols.setup{}
+
 --
 -- if not configs.golangcilsp then
 --     configs.golangcilsp = {

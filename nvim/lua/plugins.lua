@@ -1,4 +1,8 @@
 local plugins = {
+    {
+        "mistricky/codesnap.nvim",
+        run = 'make'
+    },
     { "MunifTanjim/nui.nvim" },
     {
         "loctvl842/monokai-pro.nvim",
