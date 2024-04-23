@@ -28,7 +28,7 @@ if test -d /opt/homebrew/bin
 end
 
 # Rbenv
-status --is-interactive; and rbenv init - fish | source
+# status --is-interactive; and rbenv init - fish | source
 # set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
 # set -x PATH $HOME/.gem/ruby/2.7.0/bin $PATH
 

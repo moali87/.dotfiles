@@ -11,6 +11,12 @@ local plugins = {
             require("monokai-pro").setup()
         end
     },
+    {
+        "nvim-tree/nvim-web-devicons"
+    },
+    {
+        "chrisgrieser/cmp-nerdfont"
+    },
     -- {
     --     "nvim-tree/nvim-tree.lua",
     --     version = "*",
