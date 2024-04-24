@@ -45,7 +45,7 @@ set -x EDITOR nvim
 set -x PATH $HOME/go/bin $PATH
 
 # Starship
-starship init fish | source
+# starship init fish | source
 
 # Rust
 set -x PATH $HOME/.cargo/bin $PATH
