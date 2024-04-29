@@ -1,7 +1,7 @@
 local plugins = {
     {
         "mistricky/codesnap.nvim",
-        run = 'make'
+        run = "make"
     },
     { "MunifTanjim/nui.nvim" },
     {
@@ -11,26 +11,9 @@ local plugins = {
             require("monokai-pro").setup()
         end
     },
-    {
-        "nvim-tree/nvim-web-devicons"
-    },
-    {
-        "chrisgrieser/cmp-nerdfont"
-    },
-    -- {
-    --     "nvim-tree/nvim-tree.lua",
-    --     version = "*",
-    --     lazy = false,
-    --     dependencies = {
-    --         "nvim-tree/nvim-web-devicons",
-    --     },
-    --     config = function()
-    --         require("nvim-tree").setup {}
-    --     end,
-    -- },
-    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
+    { "nvim-tree/nvim-web-devicons" },
+    { "chrisgrieser/cmp-nerdfont" },
     { "projekt0n/caret.nvim" },
-    -- Custom Parameters (with defaults)
     {
         "David-Kunz/gen.nvim",
         opts = {
@@ -46,42 +29,16 @@ local plugins = {
             -- This can also be a lua function returning a command string, with options as the input parameter.
             -- The executed command must return a JSON object with { response, context }
             -- (context property is optional).
-            list_models = '<function>', -- Retrieves a list of model names
+            list_models = "<function>", -- Retrieves a list of model names
             debug = true, -- Prints errors and the command which is run.
             dev = true
         }
     },
     {
-        "simrat39/rust-tools.nvim" ,
-        config = function ()
-            local rt = require("rust-tools")
-            rt.setup({
-                server = {
-                    -- on_attach = function(_, bufnr)
-                    --     -- Hover actions
-                    --     vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-                    --     -- Code action groups
-                    --     vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-                    -- end,
-                },
-            })
-        end
+        "mrcjkb/rustaceanvim",
+        version = "^4", -- Recommended
+        lazy = false, -- This plugin is already lazy
     },
-    -- {
-    --     "folke/noice.nvim",
-    --     event = "VeryLazy",
-    --     opts = {
-    --         -- add any options here
-    --     },
-    --     dependencies = {
-    --         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-    --         "MunifTanjim/nui.nvim",
-    --         -- OPTIONAL:
-    --         --   `nvim-notify` is only needed, if you want to use the notification view.
-    --         --   If not available, we use `mini` as the fallback
-    --         "rcarriga/nvim-notify",
-    --     }
-    -- },
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -90,88 +47,19 @@ local plugins = {
             -- or leave it empty to use the default settings
             -- refer to the configuration section below
         },
+        config = function ()
+            require("config.trouble.keymaps")
+        end
     },
     {"voldikss/vim-floaterm"},
-    -- {
-    --     "pwntester/octo.nvim",
-    --     requires = {
-    --         "nvim-lua/plenary.nvim",
-    --         "nvim-telescope/telescope.nvim",
-    --         "nvim-tree/nvim-web-devicons",
-    --     },
-    --     config = function ()
-    --         require"octo".setup()
-    --     end
-    -- },
-    -- {
-    --     "nvim-neorg/neorg",
-    --     build = ":Neorg sync-parsers",
-    --     dependencies = {
-    --         "hrsh7th/nvim-cmp",
-    --         "nvim-lua/plenary.nvim",
-    --         "nvim-neorg/neorg-telescope",
-    --         "max397574/neorg-kanban",
-    --         "max397574/neorg-contexts",
-    --     },
-    --     config = function()
-    --         require("neorg").setup(require("plugin-configs.neorg-config"))
-    --     end
-    -- },
     {
-        "nvim-telescope/telescope.nvim",
-        version = "0.1.5",
-        -- or                            , branch = '0.1.x',
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope-fzf-native.nvim",
-            "nvim-telescope/telescope-fzy-native.nvim"
-        },
+        "ibhagwan/fzf-lua",
+        -- optional for icon support
+        dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
-            require('telescope').setup {
-                defaults = {
-                    -- Default configuration for telescope goes here:
-                    -- config_key = value,
-                    mappings = {
-                        i = {
-                            -- map actions.which_key to <C-h> (default: <C-/>)
-                            -- actions.which_key shows the mappings for your picker,
-                            -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-                            ["<C-h>"] = "which_key"
-                        }
-                    }
-                },
-                pickers = {
-                    find_files = {
-                        hidden = true
-                    },
-                    live_grep = {
-                        additional_args = function(opts)
-                            return { "--hidden" }
-                        end
-                    }
-                    -- Default configuration for builtin pickers goes here:
-                    -- picker_name = {
-                    --   picker_config_key = value,
-                    --   ...
-                    -- }
-                    -- Now the picker_config_key will be applied every time you call this
-                    -- builtin picker
-                },
-                extensions = {
-                    fzf = {
-                        fuzzy = true, -- false will only do exact matching
-                        override_generic_sorter = true, -- override the generic sorter
-                        override_file_sorter = true, -- override the file sorter
-                        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-                        -- the default case_mode is "smart_case"
-                    },
-                    fzy_native = {
-                        override_generic_sorter = false,
-                        override_file_sorter = true,
-                    }
-                }
-            }
-            require("telescope").load_extension("fzy_native")
+            -- calling `setup` is optional for customization
+            require("fzf-lua").setup({})
+            require("config.fzf.keymaps")
         end
     },
     {
@@ -192,7 +80,7 @@ local plugins = {
         "nvim-neotest/nvim-nio",
         "rcarriga/nvim-dap-ui",
         "mfussenegger/nvim-dap-python",
-        "nvim-telescope/telescope-dap.nvim",
+        -- "nvim-telescope/telescope-dap.nvim",
         -- { "leoluz/nvim-dap-go", module = "dap-go" },
         "leoluz/nvim-dap-go",
         -- { "jbyuki/one-small-step-for-vimkind", module = "osv" },
@@ -233,34 +121,16 @@ local plugins = {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         opts = {},
-        -- config = function()
-        --     require("ibl").setup {
-        --         show_current_context = true,
-        --         show_current_context_start = true,
-        --         show_end_of_line = true,
-        --     }
-        -- end
+        config = function()
+            require("ibl").setup()
+        end
     },
-    -- {
-    --     "mfussenegger/nvim-lint",
-    --     dependencies = { "neovim/nvim-lspconfig", "williamboman/mason.nvim" },
-    --     config = function ()
-    --         require("plugin-configs.nvim-lint")
-    --     end
-    -- },
-    -- {
-    --     "rshkarin/mason-nvim-lint",
-    --     dependencies = { "mfussenegger/nvim-lint" },
-    --     config = function ()
-    --         require("plugin-configs.mason-nvim-lint")
-    --     end
-    -- },
     {
         "jose-elias-alvarez/null-ls.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         enabled = true,
         config = function()
-            require("plugin-configs.null-ls")
+            require("config.null-ls.config")
         end
     },
     {
@@ -269,7 +139,7 @@ local plugins = {
         dependencies = "nvim-tree/nvim-web-devicons",
         config = function()
             require("bufferline").setup(
-                require("plugin-configs.bufferline-config")
+                require("config.bufferline.config")
             )
         end
     },
@@ -279,11 +149,6 @@ local plugins = {
         "nvim-lualine/lualine.nvim",
         config = function()
             require("lualine").setup()
-            -- require("plugin-configs.lualine")
-            -- require("lualine").setup({
-            --     options = { theme = "monokai-pro" }
-            --     -- options = { theme = "molokai" }
-            -- })
         end
     },
     {
@@ -299,82 +164,38 @@ local plugins = {
         end
     },
 
-    { "kdheepak/lazygit.nvim" },
-    { "EdenEast/nightfox.nvim" },
-    {"sainnhe/sonokai"},
-    -- {
-    --     "folke/tokyonight.nvim",
-    --     lazy = false,
-    --     priority = 1000,
-    --     opts = {},
-    -- },
-    { "catppuccin/nvim", name = "catppuccin" },
     {
-        "uloco/bluloco.nvim",
-        dependencies = { "rktjmp/lush.nvim" }
-    },
-    {"neovim/nvim-lspconfig"},
-    {
-        "williamboman/mason.nvim",
+        "kdheepak/lazygit.nvim",
         config = function()
-            require("mason").setup({
-                automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-                ui = {
-                    icons = {
-                        server_installed = "✓",
-                        server_pending = "➜",
-                        server_uninstalled = "✗"
-                    }
-                }
-            })
+            require("config.lazygit.keymaps")
+        end
+    },
+    {
+        "neovim/nvim-lspconfig",
+        priority = 900,
+        config = function ()
+            require("config.lspconfig.config")
         end
     },
     {
 	"lewis6991/hover.nvim",
         lazy = false,
         config = function()
-            require("hover").setup {
-                init = function()
-                    -- Require providers
-                    require("hover.providers.lsp")
-                    -- require('hover.providers.gh')
-                    -- require('hover.providers.gh_user')
-                    -- require('hover.providers.jira')
-                    -- require('hover.providers.man')
-                    -- require('hover.providers.dictionary')
-                end,
-                preview_opts = {
-                    border = nil
-                },
-                -- Whether the contents of a currently open hover window should be moved
-                -- to a :h preview-window when pressing the hover keymap.
-                preview_window = false,
-                title = true
-            }
-
-            -- Setup keymaps
-            vim.keymap.set("n", "K", require("hover").hover, {desc = "hover.nvim"})
-            vim.keymap.set("n", "gK", require("hover").hover_select, {desc = "hover.nvim (select)"})
+            require("config.hover.config")
         end
     },
     {
         "williamboman/mason.nvim",
         config = function()
-            require("mason").setup({
-                automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-                ui = {
-                    icons = {
-                        server_installed = "✓",
-                        server_pending = "➜",
-                        server_uninstalled = "✗"
-                    }
-                }
-            })
+            require("config.mason.config")
         end
     },
     {
         "L3MON4D3/LuaSnip",
-        version = "1.*"
+        -- follow latest release.
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp"
     },
     {
 	"hrsh7th/nvim-cmp",
@@ -389,10 +210,10 @@ local plugins = {
 	    "hrsh7th/cmp-path",
 	},
         config = function()
-            require("plugin-configs.cmp")
+            require("config.cmp.config")
         end
     },
-    {"folke/lsp-colors.nvim"},
+    { "folke/lsp-colors.nvim" },
     {
         "tzachar/cmp-tabnine",
         build = "./install.sh"
@@ -401,32 +222,13 @@ local plugins = {
         "nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
         config = function()
-            require("nvim-treesitter.configs").setup(require("plugin-configs.treesitter"))
+            require("nvim-treesitter.configs").setup(require("config.treesitter.config"))
         end
     },
     { "nvim-treesitter/playground",
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         config = function()
-            require("nvim-treesitter.configs").setup({
-                playground = {
-                    enable = true,
-                    disable = {},
-                    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-                    persist_queries = false, -- Whether the query persists across vim sessions
-                    keybindings = {
-                        toggle_query_editor = 'o',
-                        toggle_hl_groups = 'i',
-                        toggle_injected_languages = 't',
-                        toggle_anonymous_nodes = 'a',
-                        toggle_language_display = 'I',
-                        focus_language = 'f',
-                        unfocus_language = 'F',
-                        update = 'R',
-                        goto_node = '<cr>',
-                        show_help = '?',
-                    },
-                }
-            })
+            require("config.treesitter.playground-config")
         end
     }
 }

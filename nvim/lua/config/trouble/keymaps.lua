@@ -8,7 +8,7 @@ local mappings = {
             q = { function() require("trouble").open("quickfix") end, "Quick Fix" },
             r = { function() require("trouble").open("lsp_references") end, "LSP References"},
             w = { function() require("trouble").open("workspace_diagnostics") end, "Workspace diagnostics"},
-            x = { function() require("trouble").open() end, "Open Trouble" },
+            x = { function() require("trouble").toggle() end, "Toggle Trouble" },
         }
     }
 }

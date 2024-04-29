@@ -1,16 +1,15 @@
-local indentGroup = vim.api.nvim_create_augroup("Indentation", { clear = true })
+local wk = require("which-key")
+local buffer_mappings = {
+    ["<leader>"] = {
+        b = {
+            name = "+buffer",
+            n = { "<cmd>bnext <cr>", "Next" },
+            p = { "<cmd>bprevious <cr>", "Previous" },
+            q = { "<cmd>bd <cr>", "Delete" },
+            Q = { "<cmd>bd! <cr>", "Delete without saving" },
+            s = { "<cmd>vert sb<cr>", "Split" },
+        }
+    }
+}
 
-vim.api.nvim_create_autocmd("BufEnter", {
-    pattern = {"*.go", "*.lua", "*.ts", "*.json"},
-    group = indentGroup,
-    callback = function ()
-        vim.api.nvim_command("set shiftwidth=4")
-        vim.api.nvim_command("set softtabstop=4")
-        vim.api.nvim_command("set tabstop=4")
-    end
-})
-
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*" },
-  command = [[%s/\s\+$//e]],
-})
+wk.register(buffer_mappings)

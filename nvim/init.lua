@@ -15,24 +15,18 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- this needs to be set before setting the material colorscheme
--- vim.g.material_style = "darker"
-vim.o.background = "dark"
-
-require('plugins')
-require('code_actions_utils')
-require('key-functions')
-
-local workMachine = "LV1XJ97QFQ"
+require("plugins")
+require("code_actions_utils")
+require("key-functions")
 
 -- python3
-vim.g.python3_host_prog = "expand('~/.pyenv/shims/python')"
+vim.g.python3_host_prog = "expand(\"~/.pyenv/shims/python\")"
 
 -- disable perl provider
 vim.g.loaded_perl_provider = 0
 
 -- nodejs
-vim.g.node_host_prog = '~/.local/share/nvm/v16.17.1/bin/neovim-node-host'
+vim.g.node_host_prog = "~/.local/share/nvm/v16.17.1/bin/neovim-node-host"
 
 -- UTF-8
 vim.opt.encoding = "utf-8"
@@ -55,17 +49,7 @@ set foldlevel=2
 ]])
 
 -- VIM Colorscheme
-vim.g.sonokai_style = 'espresso'
-vim.g.sonokai_diagnostic_virtual_text = 'colored'
-vim.g.sonokai_better_performance = 1
-vim.g.sonokai_enable_italic = 1
-vim.g.sonokai_diagnostic_text_highlight = 1
 vim.api.nvim_command("set termguicolors")
--- vim.api.nvim_command("colorscheme tokyonight-night")
--- vim.api.nvim_command("colorscheme sonokai")
--- vim.api.nvim_command("colorscheme terafox")
--- vim.api.nvim_command("colorscheme gruvbox")
--- vim.api.nvim_command("colorscheme catppuccin-mocha")
 vim.api.nvim_command("colorscheme monokai-pro")
 
 -- VIM editor settings
@@ -106,53 +90,13 @@ imap("<left>", "<nop>")
 imap("<right>", "<nop>")
 
 -- Map keys
--- Map LazyGit
-nmap("<Leader>gg", ":LazyGit<CR>")
+require("config.base.keymaps")
 
--- Map buffer movement
-nmap("<Leader>w", ":bprevious<CR>")
-nmap("<Leader>e", ":bnext<CR>")
-nmap("<Leader>q", ":bd<CR>")
-nmap("<Leader>Q", ":bd!<CR>")
-nmap("<Leader>s", ":vert sb")
-
--- Map Terminal
-tmap("<Leader><ESC>", "<C-\\><C-n>")
-tmap("<F9>", "<cmd> vsplit | term<CR>")
-
--- MISC toggles
-nmap("<F4>", "<cmd> IndentBlanklineToggle<CR>")
-
--- Notes mapping
--- nmap("<F5>", "<cmd> e ~/notes/Upstart Standup.norg<CR>")
-local function getHostname()
-    local f = io.popen("/bin/hostname")
-    if f then
-        local hostname = f:read("*a") or ""
-        f:close()
-        hostname = string.gsub(hostname, "\n$", "")
-        return hostname
-    end
-    return nil
-end
-if getHostname() == workMachine then
-    require('config.neorg.keymaps.upstart')
-end
-
--- Trouble
-require('config.trouble.keymaps')
-
--- telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>o', builtin.find_files, {})
-vim.keymap.set('n', '<leader>p', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>b', builtin.buffers, {})
-vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
 
 -- Eslint mapping
 -- nmap("<leader>f", "mF:%!eslint_d --stdin --fix-to-stdout<CR>")
 -- floaterm
-vim.keymap.set('n', '<leader>gj', ':FloatermNew --height=0.95 --width=0.95 --wintype=float --autoclose=0 jirust<CR>')
+vim.keymap.set("n", "<leader>gj", ":FloatermNew --height=0.95 --width=0.95 --wintype=float --autoclose=0 jirust<CR>")
 
 -- set spacing
-require('config.base.keymaps')
+require("config.base.autocmd")
