@@ -89,3 +89,6 @@ fzf --fish | source
 # Nodejs N
 set -x PATH $HOME/n/bin $PATH
 set -x N_PREFIX $HOME/n/
+
+# Krew
+set -q KREW_ROOT; and set -gx PATH $PATH $KREW_ROOT/.krew/bin; or set -gx PATH $PATH $HOME/.krew/bin
