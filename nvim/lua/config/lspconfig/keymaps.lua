@@ -3,6 +3,9 @@ local fzf = require("fzf-lua")
 local hover = require("hover")
 function on_attach(client, bufnr)
     local opts = { noremap = true, silent = true, bufnr = bufnr }
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(true)
+    end
     local mappings = {
         ["<Leader>"] = {
             l = {

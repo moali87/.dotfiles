@@ -133,16 +133,16 @@ local plugins = {
             require("config.null-ls.config")
         end
     },
-    {
-        "akinsho/bufferline.nvim",
-        version = "v4.1.*",
-        dependencies = "nvim-tree/nvim-web-devicons",
-        config = function()
-            require("bufferline").setup(
-                require("config.bufferline.config")
-            )
-        end
-    },
+    -- {
+    --     "akinsho/bufferline.nvim",
+    --     version = "v4.5.*",
+    --     dependencies = "nvim-tree/nvim-web-devicons",
+    --     config = function()
+    --         require("bufferline").setup(
+    --             require("config.bufferline.config")
+    --         )
+    --     end
+    -- },
     {"nvim-lua/plenary.nvim"},
     {"famiu/bufdelete.nvim"},
     {
