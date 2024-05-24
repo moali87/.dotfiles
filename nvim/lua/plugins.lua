@@ -34,11 +34,11 @@ local plugins = {
             dev = true
         }
     },
-    {
-        "mrcjkb/rustaceanvim",
-        version = "^4", -- Recommended
-        lazy = false, -- This plugin is already lazy
-    },
+    -- {
+    --     "mrcjkb/rustaceanvim",
+    --     version = "^4", -- Recommended
+    --     lazy = false, -- This plugin is already lazy
+    -- },
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },

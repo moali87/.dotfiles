@@ -51,6 +51,21 @@ lspconfig.gopls.setup {
     },
 }
 
+lspconfig.rust_analyzer.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        ['rust-analyzer'] = {
+            check = {
+                command = "clippy";
+            },
+            diagnostics = {
+                enable = true;
+            }
+        }
+    }
+}
+
 lspconfig.astro.setup {
     filetypes = { "astro" },
     on_attach = on_attach,
