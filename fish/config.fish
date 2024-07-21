@@ -26,6 +26,7 @@ alias cat "bat --style=plain"
 
 # Homebrew
 if test -d /opt/homebrew/bin
+  eval "$(/opt/homebrew/bin/brew shellenv)"
   set -x PATH /opt/homebrew/bin $PATH
   alias brew="env PATH=(string replace (pyenv root)/shims '' \"\$PATH\") /opt/homebrew/bin/brew"
 end

@@ -7,3 +7,6 @@ htop
 private/
 configstore/
 jirust/
+argocd/
+umt/
+tmux/plugins/
