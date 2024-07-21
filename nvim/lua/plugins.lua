@@ -11,6 +11,13 @@ local plugins = {
             require("monokai-pro").setup()
         end
     },
+    {
+        "echasnovski/mini.nvim",
+        version = false,
+        config = function ()
+            require('mini.icons').setup()
+        end
+    },
     { "nvim-tree/nvim-web-devicons" },
     { "chrisgrieser/cmp-nerdfont" },
     { "projekt0n/caret.nvim" },
