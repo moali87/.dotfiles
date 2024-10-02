@@ -30,7 +30,7 @@ config.keys = {
         mods = 'CMD',
         action = act.ActivateKeyTable {
             name = 'resize_pane',
-            timeout_milliseconds = 1000,
+            one_shot = false
         },
     },
     {
@@ -38,7 +38,7 @@ config.keys = {
         mods = 'ALT',
         action = act.ActivateKeyTable {
             name = 'activate_pane',
-            timeout_milliseconds = 1000,
+            one_shot = true
         },
     },
     {
@@ -46,7 +46,7 @@ config.keys = {
         mods = 'CTRL',
         action = act.ActivateKeyTable {
             name = 'create_pane',
-            timeout_milliseconds = 1000,
+            one_shot = true
         },
     },
 }
