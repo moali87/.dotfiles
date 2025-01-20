@@ -7,37 +7,28 @@ function on_attach(client, bufnr)
         vim.lsp.inlay_hint.enable(true)
     end
     local mappings = {
-        ["<Leader>"] = {
-            l = {
-                name = "+LSP",
-                p = {
-                    name = "LSP Problem",
-                    e = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Diagnostic Float" },
-                    k = { function () hover.hover() end, "Hover signature help" },
-                    K = { function () hover.hover_select() end, "Hover signature select" },
-                    n = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next problem" },
-                    p = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Previous problem" },
-                },
-                g = {
-                    name = "LSP Go To",
-                    n = { function () fzf.lsp_references() end, "References" },
-                    i = { function () fzf.lsp_implementations() end, "Implementations"},
-                    d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
-                    -- D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Go to declaration" },
-                    D = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Go to type definition" },
-                },
-                a = {
-                    name = "LSP Actions",
-                    c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action" },
-                    f = { "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", "Code format" },
-                    r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-                    wa = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Add workspace folder" },
-                    wr = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove workspace folder" },
-                    wl = { "<cmd>lua vim.lsp.buf.list_workspace_folders()<CR>", "List workspace folders" },
-                    q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Set loc list" },
-                }
-            }
+        {
+            { "<Leader>l", group = "LSP", remap = false },
+            { "<Leader>la", group = "LSP Actions", remap = false },
+            { "<Leader>lac", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code action", remap = false },
+            { "<Leader>laf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", desc = "Code format", remap = false },
+            { "<Leader>laq", "<cmd>lua vim.diagnostic.setloclist()<CR>", desc = "Set loc list", remap = false },
+            { "<Leader>lar", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename", remap = false },
+            { "<Leader>lawa", "<cmd>lua vim.lsp.buf.signature_help()<CR>", desc = "Add workspace folder", remap = false },
+            { "<Leader>lawl", "<cmd>lua vim.lsp.buf.list_workspace_folders()<CR>", desc = "List workspace folders", remap = false },
+            { "<Leader>lawr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", desc = "Remove workspace folder", remap = false },
+            { "<Leader>lg", group = "LSP Go To", remap = false },
+            { "<Leader>lgD", "<cmd>lua vim.lsp.buf.type_definition()<CR>", desc = "Go to type definition", remap = false },
+            { "<Leader>lgd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Go to definition", remap = false },
+            { "<Leader>lgi", function () fzf.lsp_implementations() end, desc = "Implementations", remap = false },
+            { "<Leader>lgn", function () fzf.lsp_references() end, desc = "References", remap = false },
+            { "<Leader>lp", group = "LSP Problem", remap = false },
+            { "<Leader>lpK", function () hover.hover_select() end, desc = "Hover signature select", remap = false },
+            { "<Leader>lpe", "<cmd>lua vim.diagnostic.open_float()<CR>", desc = "Diagnostic Float", remap = false },
+            { "<Leader>lpk", function () hover.hover() end, desc = "Hover signature help", remap = false },
+            { "<Leader>lpn", "<cmd>lua vim.diagnostic.goto_next()<CR>", desc = "Next problem", remap = false },
+            { "<Leader>lpp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", desc = "Previous problem", remap = false },
         }
     }
-    wk.register(mappings, opts)
+    wk.add(mappings, opts)
 end

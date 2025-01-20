@@ -1,23 +1,19 @@
 local wk = require("which-key")
 local buffer_mappings = {
-    ["<leader>"] = {
-        b = {
-            name = "+buffer",
-            n = { "<cmd>bnext <cr>", "Next" },
-            p = { "<cmd>bprevious <cr>", "Previous" },
-            q = { "<cmd>bd <cr>", "Delete" },
-            Q = { "<cmd>bd! <cr>", "Delete without saving" },
-            s = { "<cmd>vert sb<cr>", "Split" },
-            S = { "<cmd>hori sb<cr>", "Split" },
-        },
-        p = {
-            name = "+pane",
-            h = { "<cmd>wincmd h<cr>", "Left" },
-            j = { "<cmd>wincmd j<cr>", "Down" },
-            k = { "<cmd>wincmd k<cr>", "Up" },
-            l = { "<cmd>wincmd l<cr>", "Right" },
-        }
+    {
+        { "<leader>b", group = "buffer" },
+        { "<leader>bQ", "<cmd>bd! <cr>", desc = "Delete without saving" },
+        { "<leader>bS", "<cmd>hori sb<cr>", desc = "Split" },
+        { "<leader>bn", "<cmd>bnext <cr>", desc = "Next" },
+        { "<leader>bp", "<cmd>bprevious <cr>", desc = "Previous" },
+        { "<leader>bq", "<cmd>bd <cr>", desc = "Delete" },
+        { "<leader>bs", "<cmd>vert sb<cr>", desc = "Split" },
+        { "<leader>p", group = "pane" },
+        { "<leader>ph", "<cmd>wincmd h<cr>", desc = "Left" },
+        { "<leader>pj", "<cmd>wincmd j<cr>", desc = "Down" },
+        { "<leader>pk", "<cmd>wincmd k<cr>", desc = "Up" },
+        { "<leader>pl", "<cmd>wincmd l<cr>", desc = "Right" },
     }
 }
 
-wk.register(buffer_mappings)
+wk.add(buffer_mappings)

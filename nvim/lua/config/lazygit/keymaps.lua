@@ -1,11 +1,6 @@
 local wk = require("which-key")
 local mappings = {
-    ["<leader>"] = {
-        g = {
-            name = "Git",
-            g = { "<cmd>LazyGit <cr>", "LazyGit" },
-        }
-    }
+    { "<leader>g", group = "Git" },
+    { "<leader>gg", "<cmd>LazyGit <cr>", desc = "LazyGit" },
 }
-
-wk.register(mappings)
+wk.add(mappings)
