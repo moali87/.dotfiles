@@ -11,7 +11,7 @@ local servers = {
     "clangd",
     "solargraph",
     "pyright",
-    "tsserver",
+    "ts_ls",
     "terraformls",
     "tflint",
     "yamlls",
