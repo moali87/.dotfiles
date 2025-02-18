@@ -16,3 +16,6 @@ normal = "block"
 
 [editor.file-picker]
 hidden = false
+
+[keys.normal]
+Z = { Z = ":wq!", Q = "q!", }
