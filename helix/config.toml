@@ -18,4 +18,4 @@ normal = "block"
 hidden = false
 
 [keys.normal]
-Z = { Z = ":wq!", Q = "q!" }
+Z = { Z = ":wq!", Q = ":q!" }
