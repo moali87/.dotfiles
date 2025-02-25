@@ -1,7 +1,18 @@
 local plugins = {
     {
-        "mistricky/codesnap.nvim",
-        run = "make"
+        "nvim-java/nvim-java",
+        config = function ()
+            require("java").setup()
+        end
+    },
+    {
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+            library = {
+                { path = "${3rd}/luv/library", words = { "vim%.us" } },
+            },
+        },
     },
     {
         "folke/trouble.nvim",
@@ -45,7 +56,6 @@ local plugins = {
     },
     { "nvim-tree/nvim-web-devicons" },
     { "chrisgrieser/cmp-nerdfont" },
-    { "projekt0n/caret.nvim" },
 
     -- Custom Parameters (with defaults)
     {
@@ -228,26 +238,28 @@ local plugins = {
         build = "make install_jsregexp"
     },
     {
-	"hrsh7th/nvim-cmp",
-	dependencies = {
-	    "saadparwaiz1/cmp_luasnip",
-	    "hrsh7th/cmp-buffer",
-	    {"tzachar/cmp-tabnine", run = "./install.sh"},
-	    "hrsh7th/cmp-cmdline",
-	    "hrsh7th/cmp-nvim-lsp",
-	    "hrsh7th/cmp-nvim-lsp-signature-help",
-	    "hrsh7th/cmp-nvim-lua",
-	    "hrsh7th/cmp-path",
-	},
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-path",
+        },
         config = function()
             require("config.cmp.config")
+        end,
+        opts = function (_, opts)
+           opts.sources = opts.sources or {}
+           table.insert(opts.sources, {
+               name = "lazydev",
+               group_index = 0,
+           })
         end
     },
     { "folke/lsp-colors.nvim" },
-    {
-        "tzachar/cmp-tabnine",
-        build = "./install.sh"
-    },
     {
         "nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
