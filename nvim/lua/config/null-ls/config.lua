@@ -18,7 +18,7 @@ nls.setup({
     nls.builtins.diagnostics.pylint,
     nls.builtins.diagnostics.rubocop,
     nls.builtins.diagnostics.shellcheck,
-    nls.builtins.diagnostics.vale,
+    -- nls.builtins.diagnostics.vale,
     nls.builtins.diagnostics.yamllint,
     nls.builtins.formatting.eslint,
     nls.builtins.formatting.gofumpt,
