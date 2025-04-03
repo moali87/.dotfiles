@@ -1,7 +1,7 @@
 local plugins = {
     {
         "nvim-java/nvim-java",
-        config = function ()
+        config = function()
             require("java").setup()
         end
     },
@@ -17,14 +17,14 @@ local plugins = {
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        priority = 1000 ,
+        priority = 1000,
         cmd = "Trouble",
         opts = {
             -- your configuration comes here
             -- or leave it empty to use the default settings
             -- refer to the configuration section below
         },
-        config = function ()
+        config = function()
             require("trouble").setup()
             require("config.trouble.keymaps")
         end
@@ -32,7 +32,7 @@ local plugins = {
     { "MunifTanjim/nui.nvim" },
     {
         "MeanderingProgrammer/markdown.nvim",
-        name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
+        name = "render-markdown",                                                      -- Only needed if you have another plugin named markdown.nvim
         dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
         -- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" }, -- if you use standalone mini plugins
         -- dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
@@ -42,7 +42,7 @@ local plugins = {
     },
     {
         "loctvl842/monokai-pro.nvim",
-        priority = 1000 ,
+        priority = 1000,
         config = function()
             require("monokai-pro").setup()
         end
@@ -50,7 +50,7 @@ local plugins = {
     {
         "echasnovski/mini.nvim",
         version = false,
-        config = function ()
+        config = function()
             require('mini.icons').setup()
         end
     },
@@ -58,43 +58,41 @@ local plugins = {
     { "chrisgrieser/cmp-nerdfont" },
 
     -- Custom Parameters (with defaults)
-    -- {
-    --     "David-Kunz/gen.nvim",
-    --     opts = {
-    --         model = "deepseek-r1", -- The default model to use.
-    --         quit_map = "q", -- set keymap for close the response window
-    --         retry_map = "<c-r>", -- set keymap to re-send the current prompt
-    --         accept_map = "<c-cr>", -- set keymap to replace the previous selection with the last result
-    --         host = "localhost", -- The host running the Ollama service.
-    --         port = "11434", -- The port on which the Ollama service is listening.
-    --         display_mode = "float", -- The display mode. Can be "float" or "split" or "horizontal-split".
-    --         show_prompt = false, -- Shows the prompt submitted to Ollama.
-    --         show_model = false, -- Displays which model you are using at the beginning of your chat session.
-    --         no_auto_close = false, -- Never closes the window automatically.
-    --         hidden = false, -- Hide the generation window (if true, will implicitly set `prompt.replace = true`), requires Neovim >= 0.10
-    --         init = function(options) pcall(io.popen, "ollama serve > /dev/null 2>&1 &") end,
-    --         -- Function to initialize Ollama
-    --         command = function(options)
-    --             local body = {model = options.model, stream = true}
-    --             return "curl --silent --no-buffer -X POST http://" .. options.host .. ":" .. options.port .. "/api/chat -d $body"
-    --         end,
-    --         -- The command for the Ollama service. You can use placeholders $prompt, $model and $body (shellescaped).
-    --         -- This can also be a command string.
-    --         -- The executed command must return a JSON object with { response, context }
-    --         -- (context property is optional).
-    --         -- list_models = '<omitted lua function>', -- Retrieves a list of model names
-    --         debug = true-- Prints errors and the command which is run.
-    --     },
-    --     config = function()
-    --         require('gen').setup({})
-    --     end
-    -- },
+    {
+        "David-Kunz/gen.nvim",
+        opts = {
+            model = "deepseek-r1",  -- The default model to use.
+            quit_map = "q",         -- set keymap for close the response window
+            retry_map = "<c-r>",    -- set keymap to re-send the current prompt
+            accept_map = "<c-cr>",  -- set keymap to replace the previous selection with the last result
+            host = "localhost",     -- The host running the Ollama service.
+            port = "11434",         -- The port on which the Ollama service is listening.
+            display_mode = "float", -- The display mode. Can be "float" or "split" or "horizontal-split".
+            show_prompt = false,    -- Shows the prompt submitted to Ollama.
+            show_model = false,     -- Displays which model you are using at the beginning of your chat session.
+            no_auto_close = false,  -- Never closes the window automatically.
+            hidden = false,         -- Hide the generation window (if true, will implicitly set `prompt.replace = true`), requires Neovim >= 0.10
+            init = function(options) pcall(io.popen, "ollama serve > /dev/null 2>&1 &") end,
+            -- Function to initialize Ollama
+            command = function(options)
+                local body = { model = options.model, stream = true }
+                return "curl --silent --no-buffer -X POST http://" ..
+                    options.host .. ":" .. options.port .. "/api/chat -d $body"
+            end,
+            -- The command for the Ollama service. You can use placeholders $prompt, $model and $body (shellescaped).
+            -- This can also be a command string.
+            -- The executed command must return a JSON object with { response, context }
+            -- (context property is optional).
+            -- list_models = '<omitted lua function>', -- Retrieves a list of model names
+            debug = false -- Prints errors and the command which is run.
+        },
+    },
     -- {
     --     "mrcjkb/rustaceanvim",
     --     version = "^4", -- Recommended
     --     lazy = false, -- This plugin is already lazy
     -- },
-    {"voldikss/vim-floaterm"},
+    { "voldikss/vim-floaterm" },
     {
         "ibhagwan/fzf-lua",
         -- optional for icon support
@@ -135,17 +133,17 @@ local plugins = {
 
     {
         "folke/which-key.nvim",
-        config = function ()
-            require("which-key").setup{}
+        config = function()
+            require("which-key").setup {}
             require("whichkey")
         end
     },
     {
-	    "lewis6991/gitsigns.nvim",
-	    tag = "release", -- To use the latest release
-	    config = function()
-		    require("gitsigns").setup()
-	    end
+        "lewis6991/gitsigns.nvim",
+        tag = "release", -- To use the latest release
+        config = function()
+            require("gitsigns").setup()
+        end
     },
     {
         "windwp/nvim-autopairs",
@@ -186,8 +184,8 @@ local plugins = {
     --         )
     --     end
     -- },
-    {"nvim-lua/plenary.nvim"},
-    {"famiu/bufdelete.nvim"},
+    { "nvim-lua/plenary.nvim" },
+    { "famiu/bufdelete.nvim" },
     {
         "nvim-lualine/lualine.nvim",
         config = function()
@@ -216,12 +214,12 @@ local plugins = {
     {
         "neovim/nvim-lspconfig",
         priority = 900,
-        config = function ()
+        config = function()
             require("config.lspconfig.config")
         end
     },
     {
-	"lewis6991/hover.nvim",
+        "lewis6991/hover.nvim",
         lazy = false,
         config = function()
             require("config.hover.config")
@@ -254,23 +252,24 @@ local plugins = {
         config = function()
             require("config.cmp.config")
         end,
-        opts = function (_, opts)
-           opts.sources = opts.sources or {}
-           table.insert(opts.sources, {
-               name = "lazydev",
-               group_index = 0,
-           })
+        opts = function(_, opts)
+            opts.sources = opts.sources or {}
+            table.insert(opts.sources, {
+                name = "lazydev",
+                group_index = 0,
+            })
         end
     },
     { "folke/lsp-colors.nvim" },
     {
         "nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
+        build = ":TSUpdate",
         config = function()
             require("nvim-treesitter.configs").setup(require("config.treesitter.config"))
         end
     },
-    { "nvim-treesitter/playground",
+    {
+        "nvim-treesitter/playground",
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         config = function()
             require("config.treesitter.playground-config")
