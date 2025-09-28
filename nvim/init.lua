@@ -1,23 +1,14 @@
--- VIM Leader key
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 
 -- lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("plugins")
-require("code_actions_utils")
-require("key-functions")
+require("config.lazy")
+require("config.base.code_actions_utils")
+require("config.base.key-functions")
 
 -- python3
 vim.g.python3_host_prog = "expand(\"~/.pyenv/shims/python\")"
@@ -25,15 +16,11 @@ vim.g.python3_host_prog = "expand(\"~/.pyenv/shims/python\")"
 -- disable perl provider
 vim.g.loaded_perl_provider = 0
 
--- nodejs
-vim.g.node_host_prog = "~/.local/share/nvm/v16.17.1/bin/neovim-node-host"
-
 -- UTF-8
 vim.opt.encoding = "utf-8"
 
 -- VIM RTP
 vim.api.nvim_command([[
-set rtp+=~/.local/share/nvm/v16.17.1
 set rtp+=~/opt/homebrew/bin/
 ]])
 
@@ -41,16 +28,15 @@ set rtp+=~/opt/homebrew/bin/
 vim.loader.enable()
 
 -- VIM folding
-vim.api.nvim_command([[
-set foldmethod=indent
-set foldnestmax=10
-set nofoldenable
-set foldlevel=2
-]])
+-- vim.api.nvim_command([[
+-- set foldmethod=indent
+-- set foldnestmax=10
+-- set nofoldenable
+-- set foldlevel=2
+-- ]])
 
 -- VIM Colorscheme
 vim.api.nvim_command("set termguicolors")
-vim.api.nvim_command("colorscheme monokai-pro")
 
 -- VIM editor settings
 vim.opt.guicursor = ""
@@ -83,20 +69,25 @@ set laststatus=3
 -- vim.cmd [[ autocmd RecordingEnter * set cmdheight=1 ]]
 -- vim.cmd [[ autocmd RecordingLeave * set cmdheight=0 ]]
 
--- Disable arrow keys
-imap("<up>", "<nop>")
-imap("<down>", "<nop>")
-imap("<left>", "<nop>")
-imap("<right>", "<nop>")
-
 -- Map keys
 require("config.base.keymaps")
 
 
 -- Eslint mapping
 -- nmap("<leader>f", "mF:%!eslint_d --stdin --fix-to-stdout<CR>")
--- floaterm
-vim.keymap.set("n", "<leader>gj", ":FloatermNew --height=0.95 --width=0.95 --wintype=float --autoclose=0 jirust<CR>")
 
 -- set spacing
 require("config.base.autocmd")
+
+-- Load all LSP's in "lua/config/lsp"
+local lsp_path = vim.fn.stdpath("config") .. "/lua/config/lsp"
+
+-- Then load all other LSP configs
+for _, file in ipairs(vim.fn.readdir(lsp_path)) do
+    if file:match("%.lua$") and file ~= "global.lua" then
+        local module_name = "config.lsp." .. file:gsub("%.lua$", "")
+        require(module_name)
+    end
+end
+
+require("config.lsp.global")

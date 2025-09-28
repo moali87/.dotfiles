@@ -8,11 +8,6 @@ local buffer_mappings = {
         { "<leader>bp", "<cmd>bprevious <cr>", desc = "Previous" },
         { "<leader>bq", "<cmd>bd <cr>", desc = "Delete" },
         { "<leader>bs", "<cmd>vert sb<cr>", desc = "Split" },
-        { "<leader>p", group = "pane" },
-        { "<leader>ph", "<cmd>wincmd h<cr>", desc = "Left" },
-        { "<leader>pj", "<cmd>wincmd j<cr>", desc = "Down" },
-        { "<leader>pk", "<cmd>wincmd k<cr>", desc = "Up" },
-        { "<leader>pl", "<cmd>wincmd l<cr>", desc = "Right" },
     }
 }
 
