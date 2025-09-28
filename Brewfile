@@ -2,12 +2,6 @@
 tap "wez/wezterm"
 cask "wez/wezterm/wezterm"
 
-# Install browsers
-cask "firefox"
-
-# Install password manager
-cask "lastpass"
-
 brew "yaml-language-server"
 brew "jless"
 brew "gnupg"
@@ -30,7 +24,6 @@ brew "gcc"
 brew "lua"
 brew "pyenv"
 brew "rbenv"
-brew "vale"
 brew "golangci-lint"
 brew "awscli"
 brew "neovim"

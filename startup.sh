@@ -42,11 +42,7 @@ go install github.com/katbyte/terrafmt@latest
 go install github.com/arl/gitmux@latest
 
 # Install node packages
-npm install -g quicktype
-npm install -g eslint_d
-npm install jsonlint -g
-npm install -g aws-cdk
-npm install -g typescript-language-server typescript
+npm install -g eslint_d prettierd quicktype aws-cdk typescript-language-server typescript jsonlint
 
 # Install python packages
 pip install pylint neovim
