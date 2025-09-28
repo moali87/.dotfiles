@@ -66,8 +66,15 @@ hi vertsplit guifg=fg guibg=bg
 hi Visual term=reverse cterm=reverse guibg=Grey
 set laststatus=3
 ]])
--- vim.cmd [[ autocmd RecordingEnter * set cmdheight=1 ]]
--- vim.cmd [[ autocmd RecordingLeave * set cmdheight=0 ]]
+
+vim.cmd [[ autocmd RecordingEnter * set cmdheight=1 ]]
+vim.cmd [[ autocmd RecordingLeave * set cmdheight=0 ]]
+
+-- Disable arrow keys
+imap("<up>", "<nop>")
+imap("<down>", "<nop>")
+imap("<left>", "<nop>")
+imap("<right>", "<nop>")
 
 -- Map keys
 require("config.base.keymaps")
