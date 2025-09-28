@@ -5,6 +5,7 @@ fish/fish_variables
 *.tmp
 htop
 private/
+.private/
 configstore/
 jirust/
 argocd/
