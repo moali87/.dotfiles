@@ -98,19 +98,19 @@ return {
 					score_offset = 15, -- Tune by preference
 					opts = { insert = true }, -- Insert nerdfont icon (default) or complete its name
 				},
-				wezterm = {
-					module = "blink-cmp-wezterm",
-					name = "wezterm",
-					-- default options
-					opts = {
-						all_panes = false,
-						capture_history = false,
-						-- only suggest completions from `wezterm` if the `trigger_chars` are
-						-- used
-						triggered_only = false,
-						trigger_chars = { "." },
-					},
-				},
+				-- wezterm = {
+				-- 	module = "blink-cmp-wezterm",
+				-- 	name = "wezterm",
+				-- 	-- default options
+				-- 	opts = {
+				-- 		all_panes = false,
+				-- 		capture_history = false,
+				-- 		-- only suggest completions from `wezterm` if the `trigger_chars` are
+				-- 		-- used
+				-- 		triggered_only = false,
+				-- 		trigger_chars = { "." },
+				-- 	},
+				-- },
 			},
 			-- adding any nvim-cmp sources here will enable them
 			-- with blink.compat
@@ -124,7 +124,7 @@ return {
 				"npm",
 				"path",
 				"snippets",
-				"wezterm",
+				-- "wezterm",
 			},
 		},
 
