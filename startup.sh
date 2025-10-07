@@ -54,3 +54,15 @@ rustup component add rustfmt
 
 # Install gem packages
 gem install --user-install solargraph
+
+# Install Macports
+cd /tmp
+wget https://github.com/macports/macports-base/releases/download/v2.11.5/MacPorts-2.11.5.tar.gz
+cd MacPorts-2.11.5
+./configure && make && sudo make install
+
+# Install Luarocks
+wget https://luarocks.github.io/luarocks/releases/luarocks-3.12.2.tar.gz
+tar zxpf luarock-3.12.2.tar.gz
+cd luarocks-3.12.2
+./configure && sudo make bootstrap

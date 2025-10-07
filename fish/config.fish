@@ -93,3 +93,6 @@ set -x N_PREFIX $HOME/n/
 
 # Krew
 set -q KREW_ROOT; and set -gx PATH $PATH $KREW_ROOT/.krew/bin; or set -gx PATH $PATH $HOME/.krew/bin
+
+# MacPorts
+set -x PATH /opt/local/bin $PATH
