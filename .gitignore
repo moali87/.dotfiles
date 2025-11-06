@@ -14,3 +14,5 @@ tmux/plugins/
 aws-sso/
 argocd/
 gh/
+goose/
+.DS_Store
