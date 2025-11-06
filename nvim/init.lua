@@ -58,7 +58,7 @@ set smarttab
 set wildmenu
 set wildmode=full,list
 set nocompatible
-set shell=/bin/zsh
+set shell=/opt/homebrew/bin/fish
 syntax on
 set completeopt=menu,menuone,noselect
 set fillchars+=vert:\|

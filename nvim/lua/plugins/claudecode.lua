@@ -1,6 +1,6 @@
 return {
   "coder/claudecode.nvim",
-  enabled = false,
+  enabled = true,
   dependencies = { "folke/snacks.nvim" },
   opts = {
     terminal_cmd = "/Users/akhter.ali/.local/bin/claude"

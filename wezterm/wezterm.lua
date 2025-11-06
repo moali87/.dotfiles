@@ -18,6 +18,18 @@ config.font = wezterm.font('Fira Code')
 config.term = 'xterm-256color'
 config.keys = {
     {
+        key = 'w',
+        mods = 'SUPER|SHIFT',
+        action = act.CloseCurrentTab{confirm=true}
+
+    },
+    {
+        key = 'w',
+        mods = 'SUPER',
+        action = act.DisableDefaultAssignment
+
+    },
+    {
         key = 'r',
         mods = 'CMD|SHIFT',
         action = act.ReloadConfiguration
