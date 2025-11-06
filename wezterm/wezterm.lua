@@ -127,7 +127,8 @@ config.key_tables = {
             }
         },
         {
-            key = 'H',
+            key = 'h',
+            mods = "SHIFT",
             action = act.SplitPane {
                 direction = 'Left',
                 size = {
@@ -149,7 +150,8 @@ config.key_tables = {
             action =  act.ActivatePaneDirection 'Right'
         },
         {
-            key = 'L',
+            key = 'l',
+            mods = "SHIFT",
             action = act.SplitPane {
                 direction = 'Right',
                 size = {
@@ -171,7 +173,8 @@ config.key_tables = {
             action =  act.ActivatePaneDirection 'Up'
         },
         {
-            key = 'K',
+            key = 'k',
+            mods = "SHIFT",
             action = act.SplitPane {
                 direction = 'Up',
                 size = {
@@ -193,7 +196,8 @@ config.key_tables = {
             action =  act.ActivatePaneDirection 'Down'
         },
         {
-            key = 'J',
+            key = 'j',
+            mods = "SHIFT",
             action = act.SplitPane {
                 direction = 'Down',
                 size = {
