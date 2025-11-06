@@ -114,7 +114,7 @@ config.key_tables = {
             action =  act.TogglePaneZoomState
         },
         {
-            key = 'H',
+            key = 'h',
             action =  act.ActivatePaneDirection 'Left'
         },
         {
@@ -127,7 +127,7 @@ config.key_tables = {
             }
         },
         {
-            key = 'h',
+            key = 'H',
             action = act.SplitPane {
                 direction = 'Left',
                 size = {
@@ -146,16 +146,16 @@ config.key_tables = {
         },
         {
             key = 'l',
+            action =  act.ActivatePaneDirection 'Right'
+        },
+        {
+            key = 'L',
             action = act.SplitPane {
                 direction = 'Right',
                 size = {
                     Percent = 50
                 }
             }
-        },
-        {
-            key = 'L',
-            action =  act.ActivatePaneDirection 'Right'
         },
         {
             key = 'UpArrow',
@@ -167,11 +167,11 @@ config.key_tables = {
             }
         },
         {
-            key = 'K',
+            key = 'k',
             action =  act.ActivatePaneDirection 'Up'
         },
         {
-            key = 'k',
+            key = 'K',
             action = act.SplitPane {
                 direction = 'Up',
                 size = {
@@ -190,16 +190,16 @@ config.key_tables = {
         },
         {
             key = 'j',
+            action =  act.ActivatePaneDirection 'Down'
+        },
+        {
+            key = 'J',
             action = act.SplitPane {
                 direction = 'Down',
                 size = {
                     Percent = 50
                 }
             }
-        },
-        {
-            key = 'J',
-            action =  act.ActivatePaneDirection 'Down'
         },
         {
             key = 'd',
