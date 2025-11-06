@@ -45,14 +45,14 @@ config.keys = {
             one_shot = false
         },
     },
-    {
-        key = 'p',
-        mods = 'ALT',
-        action = act.ActivateKeyTable {
-            name = 'activate_pane',
-            one_shot = true
-        },
-    },
+    -- {
+    --     key = 'p',
+    --     mods = 'ALT',
+    --     action = act.ActivateKeyTable {
+    --         name = 'activate_pane',
+    --         one_shot = true
+    --     },
+    -- },
     {
         key = 'p',
         mods = 'CTRL',
@@ -90,25 +90,33 @@ config.key_tables = {
     -- Defines the keys that are active in our activate-pane mode.
     -- 'activate_pane' here corresponds to the name name="activate_pane" in
     -- the key assignments above.
-    activate_pane = {
-        { key = 'LeftArrow', action = act.ActivatePaneDirection 'Left' },
-        { key = 'h', action =  act.ActivatePaneDirection 'Left' },
-        { key = 'f', action =  act.TogglePaneZoomState },
-
-        { key = 'RightArrow', action = act.ActivatePaneDirection 'Right' },
-        { key = 'l', action =  act.ActivatePaneDirection 'Right' },
-
-        { key = 'UpArrow', action = act.ActivatePaneDirection 'Up' },
-        { key = 'k', action =  act.ActivatePaneDirection 'Up' },
-
-        { key = 'DownArrow', action = act.ActivatePaneDirection 'Down' },
-        { key = 'j', action =  act.ActivatePaneDirection 'Down' },
-
-        -- Cancel the mode by pressing escape
-        { key = 'Escape', action = 'PopKeyTable' },
-    },
+    -- activate_pane = {
+    --     { key = 'LeftArrow', action = act.ActivatePaneDirection 'Left' },
+    --     { key = 'h', action =  act.ActivatePaneDirection 'Left' },
+    --     { key = 'f', action =  act.TogglePaneZoomState },
+    --
+    --     { key = 'RightArrow', action = act.ActivatePaneDirection 'Right' },
+    --     { key = 'l', action =  act.ActivatePaneDirection 'Right' },
+    --
+    --     { key = 'UpArrow', action = act.ActivatePaneDirection 'Up' },
+    --     { key = 'k', action =  act.ActivatePaneDirection 'Up' },
+    --
+    --     { key = 'DownArrow', action = act.ActivatePaneDirection 'Down' },
+    --     { key = 'j', action =  act.ActivatePaneDirection 'Down' },
+    --
+    --     -- Cancel the mode by pressing escape
+    --     { key = 'Escape', action = 'PopKeyTable' },
+    -- },
 
     create_pane = {
+        {
+            key = 'F',
+            action =  act.TogglePaneZoomState
+        },
+        {
+            key = 'H',
+            action =  act.ActivatePaneDirection 'Left'
+        },
         {
             key = 'LeftArrow',
             action = act.SplitPane {
@@ -146,6 +154,10 @@ config.key_tables = {
             }
         },
         {
+            key = 'L',
+            action =  act.ActivatePaneDirection 'Right'
+        },
+        {
             key = 'UpArrow',
             action = act.SplitPane {
                 direction = 'Up',
@@ -153,6 +165,10 @@ config.key_tables = {
                     Percent = 50
                 }
             }
+        },
+        {
+            key = 'K',
+            action =  act.ActivatePaneDirection 'Up'
         },
         {
             key = 'k',
@@ -182,10 +198,18 @@ config.key_tables = {
             }
         },
         {
+            key = 'J',
+            action =  act.ActivatePaneDirection 'Down'
+        },
+        {
             key = 'd',
             action = act.CloseCurrentPane {
                 confirm = true
             }
+        },
+        {
+            key = 'Escape',
+            action = 'PopKeyTable'
         },
     },
 }
