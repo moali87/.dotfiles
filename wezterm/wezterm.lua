@@ -41,7 +41,7 @@ config.keys = {
         key = 'p',
         mods = 'CMD',
         action = act.ActivateKeyTable {
-            name = 'resize_pane',
+            name = 'resize',
             one_shot = false
         },
     },
@@ -57,7 +57,7 @@ config.keys = {
         key = 'p',
         mods = 'CTRL',
         action = act.ActivateKeyTable {
-            name = 'create_pane',
+            name = 'pane',
             one_shot = true
         },
     },
@@ -70,7 +70,7 @@ config.key_tables = {
     -- to define a key assignment for getting out of this mode.
     -- 'resize_pane' here corresponds to the name="resize_pane" in
     -- the key assignments above.
-    resize_pane = {
+    resize = {
         { key = 'LeftArrow', action = act.AdjustPaneSize { 'Left', 1 } },
         { key = 'h', action = act.AdjustPaneSize { 'Left', 1 } },
 
@@ -108,7 +108,7 @@ config.key_tables = {
     --     { key = 'Escape', action = 'PopKeyTable' },
     -- },
 
-    create_pane = {
+    pane = {
         {
             key = 'F',
             action =  act.TogglePaneZoomState
