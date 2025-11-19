@@ -101,3 +101,8 @@ set -x PATH /opt/local/bin $PATH
 set -gx PATH $PATH /Users/akhterali/.lmstudio/bin
 # End of LM Studio CLI section
 
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/akhter.ali/.lmstudio/bin
+# End of LM Studio CLI section
+

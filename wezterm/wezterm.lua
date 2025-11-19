@@ -45,14 +45,6 @@ config.keys = {
             one_shot = false
         },
     },
-    -- {
-    --     key = 'p',
-    --     mods = 'ALT',
-    --     action = act.ActivateKeyTable {
-    --         name = 'activate_pane',
-    --         one_shot = true
-    --     },
-    -- },
     {
         key = 'p',
         mods = 'CTRL',
