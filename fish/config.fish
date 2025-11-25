@@ -98,11 +98,8 @@ set -q KREW_ROOT; and set -gx PATH $PATH $KREW_ROOT/.krew/bin; or set -gx PATH $
 set -x PATH /opt/local/bin $PATH
 
 # Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/akhterali/.lmstudio/bin
+set -gx PATH $PATH ~/.lmstudio/bin
 # End of LM Studio CLI section
 
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/akhter.ali/.lmstudio/bin
-# End of LM Studio CLI section
-
+# Added by Antigravity
+fish_add_path ~/.antigravity/antigravity/bin
