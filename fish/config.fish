@@ -103,3 +103,8 @@ set -gx PATH $PATH ~/.lmstudio/bin
 
 # Added by Antigravity
 fish_add_path ~/.antigravity/antigravity/bin
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH $HOME/.lmstudio/bin
+# End of LM Studio CLI section
+

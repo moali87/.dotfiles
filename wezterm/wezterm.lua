@@ -16,197 +16,197 @@ end)
 config.color_scheme = 'Monokai (terminal.sexy)'
 config.font = wezterm.font('Fira Code')
 config.term = 'xterm-256color'
-config.keys = {
-    {
-        key = 'w',
-        mods = 'SUPER|SHIFT',
-        action = act.CloseCurrentTab{confirm=true}
+-- config.keys = {
+--     {
+--         key = 'w',
+--         mods = 'SUPER|SHIFT',
+--         action = act.CloseCurrentTab{confirm=true}
 
-    },
-    {
-        key = 'w',
-        mods = 'SUPER',
-        action = act.DisableDefaultAssignment
+--     },
+--     {
+--         key = 'w',
+--         mods = 'SUPER',
+--         action = act.DisableDefaultAssignment
 
-    },
-    {
-        key = 'r',
-        mods = 'CMD|SHIFT',
-        action = act.ReloadConfiguration
-    },
-    {
-        key = 'y', mods = 'CTRL', action = act.ShowDebugOverlay
-    },
-    {
-        key = 'p',
-        mods = 'CMD',
-        action = act.ActivateKeyTable {
-            name = 'resize',
-            one_shot = false
-        },
-    },
-    {
-        key = 'p',
-        mods = 'CTRL',
-        action = act.ActivateKeyTable {
-            name = 'pane',
-            one_shot = true
-        },
-    },
-}
+--     },
+--     {
+--         key = 'r',
+--         mods = 'CMD|SHIFT',
+--         action = act.ReloadConfiguration
+--     },
+--     {
+--         key = 'y', mods = 'CTRL', action = act.ShowDebugOverlay
+--     },
+--     {
+--         key = 'p',
+--         mods = 'CMD',
+--         action = act.ActivateKeyTable {
+--             name = 'resize',
+--             one_shot = false
+--         },
+--     },
+--     {
+--         key = 'p',
+--         mods = 'CTRL',
+--         action = act.ActivateKeyTable {
+--             name = 'pane',
+--             one_shot = true
+--         },
+--     },
+-- }
 
-config.key_tables = {
-    -- Defines the keys that are active in our resizing-pane mode.
-    -- Since we're likely to want to make multiple adjustments,
-    -- we made the activation one_shot=false.  We therefore need
-    -- to define a key assignment for getting out of this mode.
-    -- 'resize_pane' here corresponds to the name="resize_pane" in
-    -- the key assignments above.
-    resize = {
-        { key = 'LeftArrow', action = act.AdjustPaneSize { 'Left', 1 } },
-        { key = 'h', action = act.AdjustPaneSize { 'Left', 1 } },
+-- config.key_tables = {
+--     -- Defines the keys that are active in our resizing-pane mode.
+--     -- Since we're likely to want to make multiple adjustments,
+--     -- we made the activation one_shot=false.  We therefore need
+--     -- to define a key assignment for getting out of this mode.
+--     -- 'resize_pane' here corresponds to the name="resize_pane" in
+--     -- the key assignments above.
+--     resize = {
+--         { key = 'LeftArrow', action = act.AdjustPaneSize { 'Left', 1 } },
+--         { key = 'h', action = act.AdjustPaneSize { 'Left', 1 } },
 
-        { key = 'RightArrow', action = act.AdjustPaneSize { 'Right', 1 } },
-        { key = 'l', action = act.AdjustPaneSize { 'Right', 1 } },
+--         { key = 'RightArrow', action = act.AdjustPaneSize { 'Right', 1 } },
+--         { key = 'l', action = act.AdjustPaneSize { 'Right', 1 } },
 
-        { key = 'UpArrow', action = act.AdjustPaneSize { 'Up', 1 } },
-        { key = 'k', action = act.AdjustPaneSize { 'Up', 1 } },
+--         { key = 'UpArrow', action = act.AdjustPaneSize { 'Up', 1 } },
+--         { key = 'k', action = act.AdjustPaneSize { 'Up', 1 } },
 
-        { key = 'DownArrow', action = act.AdjustPaneSize { 'Down', 1 } },
-        { key = 'j', action = act.AdjustPaneSize { 'Down', 1 } },
+--         { key = 'DownArrow', action = act.AdjustPaneSize { 'Down', 1 } },
+--         { key = 'j', action = act.AdjustPaneSize { 'Down', 1 } },
 
-        -- Cancel the mode by pressing escape
-        { key = 'Escape', action = 'PopKeyTable' },
-    },
+--         -- Cancel the mode by pressing escape
+--         { key = 'Escape', action = 'PopKeyTable' },
+--     },
 
-    -- Defines the keys that are active in our activate-pane mode.
-    -- 'activate_pane' here corresponds to the name name="activate_pane" in
-    -- the key assignments above.
-    -- activate_pane = {
-    --     { key = 'LeftArrow', action = act.ActivatePaneDirection 'Left' },
-    --     { key = 'h', action =  act.ActivatePaneDirection 'Left' },
-    --     { key = 'f', action =  act.TogglePaneZoomState },
-    --
-    --     { key = 'RightArrow', action = act.ActivatePaneDirection 'Right' },
-    --     { key = 'l', action =  act.ActivatePaneDirection 'Right' },
-    --
-    --     { key = 'UpArrow', action = act.ActivatePaneDirection 'Up' },
-    --     { key = 'k', action =  act.ActivatePaneDirection 'Up' },
-    --
-    --     { key = 'DownArrow', action = act.ActivatePaneDirection 'Down' },
-    --     { key = 'j', action =  act.ActivatePaneDirection 'Down' },
-    --
-    --     -- Cancel the mode by pressing escape
-    --     { key = 'Escape', action = 'PopKeyTable' },
-    -- },
+--     -- Defines the keys that are active in our activate-pane mode.
+--     -- 'activate_pane' here corresponds to the name name="activate_pane" in
+--     -- the key assignments above.
+--     -- activate_pane = {
+--     --     { key = 'LeftArrow', action = act.ActivatePaneDirection 'Left' },
+--     --     { key = 'h', action =  act.ActivatePaneDirection 'Left' },
+--     --     { key = 'f', action =  act.TogglePaneZoomState },
+--     --
+--     --     { key = 'RightArrow', action = act.ActivatePaneDirection 'Right' },
+--     --     { key = 'l', action =  act.ActivatePaneDirection 'Right' },
+--     --
+--     --     { key = 'UpArrow', action = act.ActivatePaneDirection 'Up' },
+--     --     { key = 'k', action =  act.ActivatePaneDirection 'Up' },
+--     --
+--     --     { key = 'DownArrow', action = act.ActivatePaneDirection 'Down' },
+--     --     { key = 'j', action =  act.ActivatePaneDirection 'Down' },
+--     --
+--     --     -- Cancel the mode by pressing escape
+--     --     { key = 'Escape', action = 'PopKeyTable' },
+--     -- },
 
-    pane = {
-        {
-            key = 'F',
-            action =  act.TogglePaneZoomState
-        },
-        {
-            key = 'h',
-            action =  act.ActivatePaneDirection 'Left'
-        },
-        {
-            key = 'LeftArrow',
-            action = act.SplitPane {
-                direction = 'Left',
-                size = {
-                    Percent = 50
-                }
-            }
-        },
-        {
-            key = 'h',
-            mods = "SHIFT",
-            action = act.SplitPane {
-                direction = 'Left',
-                size = {
-                    Percent = 50
-                }
-            }
-        },
-        {
-            key = 'RightArrow',
-            action = act.SplitPane {
-                direction = 'Right',
-                size = {
-                    Percent = 50
-                }
-            }
-        },
-        {
-            key = 'l',
-            action =  act.ActivatePaneDirection 'Right'
-        },
-        {
-            key = 'l',
-            mods = "SHIFT",
-            action = act.SplitPane {
-                direction = 'Right',
-                size = {
-                    Percent = 50
-                }
-            }
-        },
-        {
-            key = 'UpArrow',
-            action = act.SplitPane {
-                direction = 'Up',
-                size = {
-                    Percent = 50
-                }
-            }
-        },
-        {
-            key = 'k',
-            action =  act.ActivatePaneDirection 'Up'
-        },
-        {
-            key = 'k',
-            mods = "SHIFT",
-            action = act.SplitPane {
-                direction = 'Up',
-                size = {
-                    Percent = 50
-                }
-            }
-        },
-        {
-            key = 'DownArrow',
-            action = act.SplitPane {
-                direction = 'Down',
-                size = {
-                    Percent = 50
-                }
-            }
-        },
-        {
-            key = 'j',
-            action =  act.ActivatePaneDirection 'Down'
-        },
-        {
-            key = 'j',
-            mods = "SHIFT",
-            action = act.SplitPane {
-                direction = 'Down',
-                size = {
-                    Percent = 50
-                }
-            }
-        },
-        {
-            key = 'd',
-            action = act.CloseCurrentPane {
-                confirm = true
-            }
-        },
-        {
-            key = 'Escape',
-            action = 'PopKeyTable'
-        },
-    },
-}
+--     pane = {
+--         {
+--             key = 'F',
+--             action =  act.TogglePaneZoomState
+--         },
+--         {
+--             key = 'h',
+--             action =  act.ActivatePaneDirection 'Left'
+--         },
+--         {
+--             key = 'LeftArrow',
+--             action = act.SplitPane {
+--                 direction = 'Left',
+--                 size = {
+--                     Percent = 50
+--                 }
+--             }
+--         },
+--         {
+--             key = 'h',
+--             mods = "SHIFT",
+--             action = act.SplitPane {
+--                 direction = 'Left',
+--                 size = {
+--                     Percent = 50
+--                 }
+--             }
+--         },
+--         {
+--             key = 'RightArrow',
+--             action = act.SplitPane {
+--                 direction = 'Right',
+--                 size = {
+--                     Percent = 50
+--                 }
+--             }
+--         },
+--         {
+--             key = 'l',
+--             action =  act.ActivatePaneDirection 'Right'
+--         },
+--         {
+--             key = 'l',
+--             mods = "SHIFT",
+--             action = act.SplitPane {
+--                 direction = 'Right',
+--                 size = {
+--                     Percent = 50
+--                 }
+--             }
+--         },
+--         {
+--             key = 'UpArrow',
+--             action = act.SplitPane {
+--                 direction = 'Up',
+--                 size = {
+--                     Percent = 50
+--                 }
+--             }
+--         },
+--         {
+--             key = 'k',
+--             action =  act.ActivatePaneDirection 'Up'
+--         },
+--         {
+--             key = 'k',
+--             mods = "SHIFT",
+--             action = act.SplitPane {
+--                 direction = 'Up',
+--                 size = {
+--                     Percent = 50
+--                 }
+--             }
+--         },
+--         {
+--             key = 'DownArrow',
+--             action = act.SplitPane {
+--                 direction = 'Down',
+--                 size = {
+--                     Percent = 50
+--                 }
+--             }
+--         },
+--         {
+--             key = 'j',
+--             action =  act.ActivatePaneDirection 'Down'
+--         },
+--         {
+--             key = 'j',
+--             mods = "SHIFT",
+--             action = act.SplitPane {
+--                 direction = 'Down',
+--                 size = {
+--                     Percent = 50
+--                 }
+--             }
+--         },
+--         {
+--             key = 'd',
+--             action = act.CloseCurrentPane {
+--                 confirm = true
+--             }
+--         },
+--         {
+--             key = 'Escape',
+--             action = 'PopKeyTable'
+--         },
+--     },
+-- }
 return config
