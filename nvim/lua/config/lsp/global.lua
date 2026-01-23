@@ -17,4 +17,8 @@ local go = require('config.lsp.golangci_lint_ls')
 vim.lsp.config.go = go
 vim.lsp.enable('go')
 
+local yamlls = require('config.lsp.yamlls')
+vim.lsp.config.yamlls = yamlls
+vim.lsp.enable('yamlls')
+
 require('config.lsp.keymaps')
