@@ -4,6 +4,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- disable swap
+vim.opt.swapfile = false
+
 
 -- lazy.nvim
 require("config.lazy")

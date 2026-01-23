@@ -21,4 +21,12 @@ local yamlls = require('config.lsp.yamlls')
 vim.lsp.config.yamlls = yamlls
 vim.lsp.enable('yamlls')
 
+vim.diagnostic.config({
+    signs = true, -- Shows signs in the gutter
+    update_in_insert = false, -- Don't update diagnostics while in insert mode
+    severity_sort = true, -- Sort diagnostics by severity
+    virtual_lines = true,
+})
+
+
 require('config.lsp.keymaps')
