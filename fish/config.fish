@@ -73,10 +73,16 @@ set -x PATH $HOME/.local/bin $PATH
 if test -e ~/.config/private/privateKeys.fish
   source ~/.config/private/privateKeys.fish
 end
+if test -e ~/.config/.private/privateKeys.fish
+  source ~/.config/.private/privateKeys.fish
+end
 
 # Config
 if test -e ~/.config/private/config.fish
   source ~/.config/private/config.fish
+end
+if test -e ~/.config/.private/config.fish
+  source ~/.config/.private/config.fish
 end
 
 # theme_gruvbox dark
@@ -106,5 +112,10 @@ fish_add_path ~/.antigravity/antigravity/bin
 
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH $HOME/.lmstudio/bin
+# End of LM Studio CLI section
+
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/akhter.ali/.lmstudio/bin
 # End of LM Studio CLI section
 
