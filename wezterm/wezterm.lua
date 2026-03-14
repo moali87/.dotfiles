@@ -16,44 +16,49 @@ end)
 config.color_scheme = 'Monokai (terminal.sexy)'
 config.font = wezterm.font('Fira Code')
 config.term = 'xterm-256color'
--- config.keys = {
---     {
---         key = 'w',
---         mods = 'SUPER|SHIFT',
---         action = act.CloseCurrentTab{confirm=true}
-
---     },
---     {
---         key = 'w',
---         mods = 'SUPER',
---         action = act.DisableDefaultAssignment
-
---     },
---     {
---         key = 'r',
---         mods = 'CMD|SHIFT',
---         action = act.ReloadConfiguration
---     },
---     {
---         key = 'y', mods = 'CTRL', action = act.ShowDebugOverlay
---     },
---     {
---         key = 'p',
---         mods = 'CMD',
---         action = act.ActivateKeyTable {
---             name = 'resize',
---             one_shot = false
---         },
---     },
---     {
---         key = 'p',
---         mods = 'CTRL',
---         action = act.ActivateKeyTable {
---             name = 'pane',
---             one_shot = true
---         },
---     },
--- }
+config.keys = {
+    {
+      key = "Backspace",
+      mods = "NONE",
+      action = act.SendString("\x7f"), -- Sends the DEL character (which is ^?)
+    },
+    -- {
+    --     key = 'w',
+    --     mods = 'SUPER|SHIFT',
+    --     action = act.CloseCurrentTab{confirm=true}
+    --
+    -- },
+    -- {
+    --     key = 'w',
+    --     mods = 'SUPER',
+    --     action = act.DisableDefaultAssignment
+    --
+    -- },
+    -- {
+    --     key = 'r',
+    --     mods = 'CMD|SHIFT',
+    --     action = act.ReloadConfiguration
+    -- },
+    -- {
+    --     key = 'y', mods = 'CTRL', action = act.ShowDebugOverlay
+    -- },
+    -- {
+    --     key = 'p',
+    --     mods = 'CMD',
+    --     action = act.ActivateKeyTable {
+    --         name = 'resize',
+    --         one_shot = false
+    --     },
+    -- },
+    -- {
+    --     key = 'p',
+    --     mods = 'CTRL',
+    --     action = act.ActivateKeyTable {
+    --         name = 'pane',
+    --         one_shot = true
+    --     },
+    -- },
+}
 
 -- config.key_tables = {
 --     -- Defines the keys that are active in our resizing-pane mode.
