@@ -114,3 +114,6 @@ fish_add_path ~/.antigravity/antigravity/bin
 set -gx PATH $PATH $HOME/.lmstudio/bin
 # End of LM Studio CLI section
 
+
+# opencode
+fish_add_path $HOME/.opencode/bin
