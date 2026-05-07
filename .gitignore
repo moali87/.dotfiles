@@ -18,3 +18,4 @@ goose/
 .DS_Store
 opencode/
 acli/
+pip/

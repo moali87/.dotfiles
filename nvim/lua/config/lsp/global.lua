@@ -28,5 +28,9 @@ vim.diagnostic.config({
     virtual_lines = true,
 })
 
+local terraform_ls = require('config.lsp.terraform-ls')
+vim.lsp.config.terraformls = terraform_ls
+vim.lsp.enable('terraformls')
+
 
 require('config.lsp.keymaps')
